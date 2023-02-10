@@ -21,6 +21,7 @@ call dein#add('vim-jp/vimdoc-ja')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('skanehira/jumpcursor.vim')
 call dein#add('vim-skk/eskk.vim')
+call dein#add('sophacles/vim-processing')
 
 " Required:
 call dein#end()
@@ -34,14 +35,16 @@ syntax enable
 "  call dein#install()
 "endif
 
-"End dein Scripts-------------------------
-
-"color---------------------------------------------------
+"appearance----------------------------------------------------------------------------
 set background=dark
-"----------------------------------------------------------------------------
 set number
+"behavior------------------------------------------------------------------
 set helplang=ja
-set clipboard+=unnamedplus
+
+set clipboard+=unnamedplus "link clipboard with vim
+
+inoremap <C-f> <C-g>U<Right> "インサートモードのままカーソル移動
+inoremap <C-f><C-f> <C-g>U<ESC><S-a>
 "indent guides------------------------------------------------
 let g:indent_guides_enable_on_vim_startup = 1
 hi IndentGuidesOdd  ctermbg=black
