@@ -54,3 +54,6 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_enable_guide_size = 1
 "search---------------------------------------------------------
 nmap [j <Plug>(jumpcursor-jump)
+"status line---------------------------------------------------
+set laststatus=2
+set statusline=<%t>%=%y
