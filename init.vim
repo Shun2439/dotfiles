@@ -82,3 +82,15 @@ set statusline=%#title#%t%=%y%<
 "ale-------------------------------------------------------------
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+"vimtex-----------------------------------
+let g:tex_flavor = 'latex'
+let g:vimtex_compiler_latexmk = {
+			\ 'executable': 'latexmk',
+			\ 'options': [
+			\   '-verbose',
+			\   '-file-line-error',
+			\   '-synctex=1',
+			\   '-interaction=nonstopmode',
+			\   '-pdf',
+			\ ],
+			\ }
