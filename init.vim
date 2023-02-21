@@ -17,11 +17,15 @@ call dein#add('C:\Users\shunt\.cache\dein\repos\github.com\Shougo\dein.vim')
 "call dein#add('Shougo/neosnippet.vim')
 "call dein#add('Shougo/neosnippet-snippets')
 call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
-call dein#add('vim-jp/vimdoc-ja')
-call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('skanehira/jumpcursor.vim')
-call dein#add('vim-skk/eskk.vim')
+call dein#add('vim-jp/vimdoc-ja') "helpを日本語化
+"call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('skanehira/jumpcursor.vim') "カーソル移動が楽になるプラグイン
+call dein#add('vim-skk/eskk.vim') "日本語用プラグイン？
 call dein#add('sophacles/vim-processing')
+call dein#add('Yggdroot/indentLine') "インデント可視化
+call dein#add('dense-analysis/ale')
+call dein#add('tpope/vim-sleuth')
+call dein#add('tpope/vim-surround')
 
 " Required:
 call dein#end()
@@ -39,12 +43,27 @@ syntax enable
 set background=dark
 set number
 "behavior------------------------------------------------------------------
+set encoding=utf-8
+scriptencoding utf-8
+
+set ambiwidth=double " □や○文字が崩れる問題を解決
 set helplang=ja
 
 set clipboard+=unnamedplus "link clipboard with vim
 
-inoremap <C-f> <C-g>U<Right> "インサートモードのままカーソル移動
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR> 
+" ESCキー2度押しでハイライトの切り替え
+inoremap <C-f> <C-g>U<Right> 
+"インサートモードのままカーソル移動
 inoremap <C-f><C-f> <C-g>U<ESC><S-a>
+
+" 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
+nnoremap j gj
+nnoremap k gk
+nnoremap <down> gj
+nnoremap <up> gk 
+" 行末の空白を可視化する
+"set list listchars=tab:»·,trail:·
 "indent guides------------------------------------------------
 let g:indent_guides_enable_on_vim_startup = 1
 hi IndentGuidesOdd  ctermbg=black
@@ -56,4 +75,8 @@ let g:indent_guides_enable_guide_size = 1
 nmap [j <Plug>(jumpcursor-jump)
 "status line---------------------------------------------------
 set laststatus=2
-set statusline=<%t>%=%y
+set statusline=%#title#%t%=%y%<
+
+"ale-------------------------------------------------------------
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
