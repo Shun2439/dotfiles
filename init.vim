@@ -27,6 +27,10 @@ call dein#add('dense-analysis/ale')
 call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-surround')
 
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
+"call dein#add('morhetz/gruvbox') "theme
+
 " Required:
 call dein#end()
 
@@ -94,3 +98,10 @@ let g:vimtex_compiler_latexmk = {
 			\   '-pdf',
 			\ ],
 			\ }
+"airline------------------------
+" テーマの設定
+"let g:airline_theme='gruvbox'
+
+" セパレーターの設定
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
