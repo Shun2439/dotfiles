@@ -64,6 +64,8 @@ nnoremap <down> gj
 nnoremap <up> gk 
 " 行末の空白を可視化する
 "set list listchars=tab:»·,trail:·
+" 設定ファイルの自動再読み込みを有効にする
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
 "indent guides------------------------------------------------
 let g:indent_guides_enable_on_vim_startup = 1
 hi IndentGuidesOdd  ctermbg=black
