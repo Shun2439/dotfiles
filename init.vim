@@ -108,11 +108,10 @@ let g:airline_update_conceal_delay = 1000
 "key---------------------------------
 tnoremap <Esc> <C-\><C-n>
 autocmd TermOpen * startinsert
-command! -nargs=* T split|wincmd j|resize 20|terminal <args>
+command! -nargs=* T split|wincmd j|resize 15|terminal <args>
+command! -nargs=* V vsplit <args>
 "NERDTree-----------------------------
 let g:NERDTreeWinSize = 25
-autocmd VimEnter * NERDTree
-autocmd VimLeave * if exists("t:NERDTreeBufName") | NERDTreeClose | endif
 "behavior------------------------------------------------------------------
 set encoding=utf-8
 scriptencoding utf-8
@@ -126,7 +125,9 @@ set clipboard+=unnamedplus "link clipboard with vim
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 " 設定ファイルの自動再読み込みを有効にする
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
+"autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 "空白表示
 set list
+
+autocmd VimEnter * NERDTree | wincmd l
