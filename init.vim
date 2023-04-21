@@ -1,6 +1,21 @@
+"let $CACHE = expand('~/.cache')
+"if !isdirectory($CACHE)
+"    call mkdir($CACHE, 'p')
+"endif
+"if &runtimepath !~# '/dein.vim'
+"    let s:dein_dir = fnamemodify('dein.vim', ':p')
+"    if !isdirectory(s:dein_dir)
+"        let s:dein_dir = $CACHE .. '/dein/repos/github.com/Shougo/dein.vim'
+"        if !isdirectory(s:dein_dir)
+"            execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+"        endif
+"    endif
+"    execute 'set runtimepath^=' .. substitute(
+"                \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
+"endif
 "dein Scripts-----------------------------
 if &compatible
-	set nocompatible               " Be iMproved
+    set nocompatible               " Be iMproved
 endif
 
 " Required:
@@ -14,22 +29,21 @@ call dein#begin('C:\Users\shunt\.cache\dein')
 call dein#add('C:\Users\shunt\.cache\dein\repos\github.com\Shougo\dein.vim')
 
 " Add or remove your plugins here like this:
-"call dein#add('Shougo/neosnippet.vim')
-"call dein#add('Shougo/neosnippet-snippets')
-call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
+call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' }) "補完
 call dein#add('vim-jp/vimdoc-ja') "helpを日本語化
-"call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('skanehira/jumpcursor.vim') "カーソル移動が楽になるプラグイン
 call dein#add('vim-skk/eskk.vim') "日本語用プラグイン？
-call dein#add('sophacles/vim-processing')
 call dein#add('Yggdroot/indentLine') "インデント可視化
-call dein#add('dense-analysis/ale')
-call dein#add('tpope/vim-sleuth')
+"call dein#add('dense-analysis/ale')
+"call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-surround')
 
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
-"call dein#add('morhetz/gruvbox') "theme
+call dein#add('powerline/powerline-fonts')
+
+call dein#add('preservim/nerdtree')
 
 " Required:
 call dein#end()
@@ -46,30 +60,7 @@ syntax enable
 "appearance----------------------------------------------------------------------------
 set background=dark
 set number
-"behavior------------------------------------------------------------------
-set encoding=utf-8
-scriptencoding utf-8
-
-set ambiwidth=double " □や○文字が崩れる問題を解決
-set helplang=ja
-
-set clipboard+=unnamedplus "link clipboard with vim
-
-nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR> 
-" ESCキー2度押しでハイライトの切り替え
-inoremap <C-f> <C-g>U<Right> 
-"インサートモードのままカーソル移動
-inoremap <C-f><C-f> <C-g>U<ESC><S-a>
-
-" 行が折り返し表示されていた場合、行単位ではなく表示行単位でカーソルを移動する
-nnoremap j gj
-nnoremap k gk
-nnoremap <down> gj
-nnoremap <up> gk 
-" 行末の空白を可視化する
-"set list listchars=tab:»·,trail:·
-" 設定ファイルの自動再読み込みを有効にする
-autocmd BufWritePost $MYVIMRC source $MYVIMRC
+colorscheme desert
 "indent guides------------------------------------------------
 let g:indent_guides_enable_on_vim_startup = 1
 hi IndentGuidesOdd  ctermbg=black
@@ -81,27 +72,61 @@ let g:indent_guides_enable_guide_size = 1
 nmap [j <Plug>(jumpcursor-jump)
 "status line---------------------------------------------------
 set laststatus=2
-set statusline=%#title#%t%=%y%<
-
 "ale-------------------------------------------------------------
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 "vimtex-----------------------------------
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_latexmk = {
-			\ 'executable': 'latexmk',
-			\ 'options': [
-			\   '-verbose',
-			\   '-file-line-error',
-			\   '-synctex=1',
-			\   '-interaction=nonstopmode',
-			\   '-pdf',
-			\ ],
-			\ }
-"airline------------------------
-" テーマの設定
-"let g:airline_theme='gruvbox'
+            \ 'executable': 'latexmk',
+            \ 'options': [
+            \   '-verbose',
+            \   '-file-line-error',
+            \   '-synctex=1',
+            \   '-interaction=nonstopmode',
+            \   '-pdf',
+            \ ],
+            \ }
+"airline-------------------------------------
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='cool'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_idx_format = {
+	\ '0': '0 ',
+	\ '1': '1 ',
+	\ '2': '2 ',
+	\ '3': '3 ',
+	\ '4': '4 ',
+	\ '5': '5 ',
+	\ '6': '6 ',
+	\ '7': '7 ',
+	\ '8': '8 ',
+	\ '9': '9 '
+	\}
+let g:airline_powerline_fonts = 1
+let g:airline_update_conceal_delay = 1000
+"key---------------------------------
+tnoremap <Esc> <C-\><C-n>
+autocmd TermOpen * startinsert
+command! -nargs=* T split|wincmd j|resize 20|terminal <args>
+"NERDTree-----------------------------
+let g:NERDTreeWinSize = 25
+autocmd VimEnter * NERDTree
+autocmd VimLeave * if exists("t:NERDTreeBufName") | NERDTreeClose | endif
+"behavior------------------------------------------------------------------
+set encoding=utf-8
+scriptencoding utf-8
 
-" セパレーターの設定
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+set ambiwidth=double " □や○文字が崩れる問題を解決
+set helplang=ja
+
+set clipboard+=unnamedplus "link clipboard with vim
+
+" ESCキー2度押しでハイライトの切り替え
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
+" 設定ファイルの自動再読み込みを有効にする
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+"空白表示
+set list
