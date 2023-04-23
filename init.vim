@@ -109,9 +109,14 @@ let g:airline_update_conceal_delay = 1000
 tnoremap <Esc> <C-\><C-n>
 autocmd TermOpen * startinsert
 command! -nargs=* T split|wincmd j|resize 15|terminal <args>
+command! -nargs=* VT vsplit|wincmd l|vertical resize 150|terminal <args>
+"nnoremap T :vsplit | wincmd j | resize 15 | terminal <CR>
 command! -nargs=* V vsplit <args>
 "NERDTree-----------------------------
 let g:NERDTreeWinSize = 25
+"let g:NERDTreeDirArrowExpandable = '?'
+"let g:NERDTreeDirArrowCollapsible = '?'
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 "behavior------------------------------------------------------------------
 set encoding=utf-8
 scriptencoding utf-8
@@ -130,4 +135,4 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 "空白表示
 set list
 
-autocmd VimEnter * NERDTree | wincmd l
+autocmd VimEnter * NERDTree | wincmd p
