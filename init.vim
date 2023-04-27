@@ -1,32 +1,44 @@
-"let $CACHE = expand('~/.cache')
-"if !isdirectory($CACHE)
-"    call mkdir($CACHE, 'p')
-"endif
-"if &runtimepath !~# '/dein.vim'
-"    let s:dein_dir = fnamemodify('dein.vim', ':p')
-"    if !isdirectory(s:dein_dir)
-"        let s:dein_dir = $CACHE .. '/dein/repos/github.com/Shougo/dein.vim'
-"        if !isdirectory(s:dein_dir)
-"            execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-"        endif
-"    endif
-"    execute 'set runtimepath^=' .. substitute(
-"                \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
-"endif
 "dein Scripts-----------------------------
 if &compatible
     set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=C:\Users\shunt\.cache\dein\repos\github.com\Shougo\dein.vim
+if has("win64")
 
-" Required:
-call dein#begin('C:\Users\shunt\.cache\dein')
+    " Required:
+    set runtimepath+=C:\Users\shunt\.cache\dein\repos\github.com\Shougo\dein.vim
 
-" Let dein manage dein
-" Required:
-call dein#add('C:\Users\shunt\.cache\dein\repos\github.com\Shougo\dein.vim')
+    " Required:
+    call dein#begin('C:\Users\shunt\.cache\dein')
+
+    " Let dein manage dein
+    " Required:
+    call dein#add('C:\Users\shunt\.cache\dein\repos\github.com\Shougo\dein.vim')
+
+else
+
+    let $CACHE = expand('~/.cache')
+    if !isdirectory($CACHE)
+        call mkdir($CACHE, 'p')
+    endif
+    if &runtimepath !~# '/dein.vim'
+        let s:dein_dir = fnamemodify('dein.vim', ':p')
+        if !isdirectory(s:dein_dir)
+            let s:dein_dir = $CACHE .. '/dein/repos/github.com/Shougo/dein.vim'
+            if !isdirectory(s:dein_dir)
+                execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+            endif
+        endif
+        execute 'set runtimepath^=' .. substitute(
+                    \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
+    endif
+    set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+
+    call dein#begin('$HOME/.cache/dein')
+
+    call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+endif
 
 " Add or remove your plugins here like this:
 call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' }) "補完
@@ -92,19 +104,22 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='cool'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {
-	\ '0': '0 ',
-	\ '1': '1 ',
-	\ '2': '2 ',
-	\ '3': '3 ',
-	\ '4': '4 ',
-	\ '5': '5 ',
-	\ '6': '6 ',
-	\ '7': '7 ',
-	\ '8': '8 ',
-	\ '9': '9 '
-	\}
+            \ '0': '0 ',
+            \ '1': '1 ',
+            \ '2': '2 ',
+            \ '3': '3 ',
+            \ '4': '4 ',
+            \ '5': '5 ',
+            \ '6': '6 ',
+            \ '7': '7 ',
+            \ '8': '8 ',
+            \ '9': '9 '
+            \}
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 let g:airline_update_conceal_delay = 1000
+let g:airline#extensions#tabline#formatter = 'default'
 "key---------------------------------
 tnoremap <Esc> <C-\><C-n>
 autocmd TermOpen * startinsert
