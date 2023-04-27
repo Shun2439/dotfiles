@@ -1,4 +1,4 @@
-"dein Scripts-----------------------------
+"Scripts-----------------------------
 if &compatible
     set nocompatible               " Be iMproved
 endif
@@ -72,7 +72,7 @@ syntax enable
 "appearance----------------------------------------------------------------------------
 set background=dark
 set number
-colorscheme desert
+colorscheme habamax 
 "indent guides------------------------------------------------
 let g:indent_guides_enable_on_vim_startup = 1
 hi IndentGuidesOdd  ctermbg=black
@@ -127,11 +127,14 @@ command! -nargs=* T split|wincmd j|resize 15|terminal <args>
 command! -nargs=* VT vsplit|wincmd l|vertical resize 150|terminal <args>
 "nnoremap T :vsplit | wincmd j | resize 15 | terminal <CR>
 command! -nargs=* V vsplit <args>
+command! -nargs=* TB tabnew <args>
 "NERDTree-----------------------------
 let g:NERDTreeWinSize = 25
+let NERDTreeShowHidden=1
 "let g:NERDTreeDirArrowExpandable = '?'
 "let g:NERDTreeDirArrowCollapsible = '?'
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd VimEnter * NERDTree | wincmd p
 "behavior------------------------------------------------------------------
 set encoding=utf-8
 scriptencoding utf-8
@@ -148,6 +151,4 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 "autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 "空白表示
-set list
-
-autocmd VimEnter * NERDTree | wincmd p
+"set list
