@@ -57,6 +57,7 @@ call dein#add('powerline/powerline-fonts')
 
 call dein#add('preservim/nerdtree')
 
+call dein#add('connorholyday/vim-snazzy')
 " Required:
 call dein#end()
 
@@ -72,7 +73,7 @@ syntax enable
 "appearance----------------------------------------------------------------------------
 set background=dark
 set number
-colorscheme habamax 
+colorscheme snazzy 
 "indent guides------------------------------------------------
 let g:indent_guides_enable_on_vim_startup = 1
 hi IndentGuidesOdd  ctermbg=black
@@ -115,11 +116,39 @@ let g:airline#extensions#tabline#buffer_idx_format = {
             \ '8': '8 ',
             \ '9': '9 '
             \}
+
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 let g:airline_update_conceal_delay = 1000
-let g:airline#extensions#tabline#formatter = 'default'
+"let g:airline#extensions#tabline#formatter = 'default'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+let g:airline_symbols.branch = ''
+let g:airline_symbols.colnr = ' ℅:'
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' :'
+let g:airline_symbols.maxlinenr = '☰ '
+let g:airline_symbols.dirty='⚡'
+
+" old vim-powerline symbols
+"let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
+"let g:airline_symbols.branch = '⭠'
+"let g:airline_symbols.readonly = '⭤'
+"let g:airline_symbols.linenr = '⭡'
 "key---------------------------------
 tnoremap <Esc> <C-\><C-n>
 autocmd TermOpen * startinsert
@@ -138,6 +167,8 @@ autocmd VimEnter * NERDTree | wincmd p
 "behavior------------------------------------------------------------------
 set encoding=utf-8
 scriptencoding utf-8
+
+set guifont=Hack
 
 set ambiwidth=double " □や○文字が崩れる問題を解決
 set helplang=ja
