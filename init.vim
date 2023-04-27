@@ -102,7 +102,7 @@ let g:vimtex_compiler_latexmk = {
             \ }
 "airline-------------------------------------
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='cool'
+let g:airline_theme='transparent'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {
             \ '0': '0 ',
@@ -182,4 +182,4 @@ nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 "autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 "空白表示
-"set list
+set list
