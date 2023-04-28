@@ -58,6 +58,7 @@ call dein#add('powerline/powerline-fonts')
 call dein#add('preservim/nerdtree')
 
 call dein#add('connorholyday/vim-snazzy')
+call dein#add('ryanoasis/vim-devicons')
 " Required:
 call dein#end()
 
@@ -157,6 +158,7 @@ command! -nargs=* VT vsplit|wincmd l|vertical resize 150|terminal <args>
 "nnoremap T :vsplit | wincmd j | resize 15 | terminal <CR>
 command! -nargs=* V vsplit <args>
 command! -nargs=* TB tabnew <args>
+command! -nargs=* S split <args>
 "NERDTree-----------------------------
 let g:NERDTreeWinSize = 25
 let NERDTreeShowHidden=1
@@ -164,6 +166,8 @@ let NERDTreeShowHidden=1
 "let g:NERDTreeDirArrowCollapsible = '?'
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd VimEnter * NERDTree | wincmd p
+"devicons------------------------------------------------------------------
+set guifont=Hack:h14
 "behavior------------------------------------------------------------------
 set encoding=utf-8
 scriptencoding utf-8
