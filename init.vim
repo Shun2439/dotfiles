@@ -50,10 +50,9 @@ call dein#add('Yggdroot/indentLine') "インデント可視化
 "call dein#add('dense-analysis/ale')
 "call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-surround')
-call dein#add('nvimdev/spaceline.vim')
 
-"call dein#add('vim-airline/vim-airline')
-"call dein#add('vim-airline/vim-airline-themes')
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
 call dein#add('powerline/powerline-fonts')
 
 call dein#add('preservim/nerdtree')
@@ -71,6 +70,7 @@ syntax enable
 "if dein#check_install()
 "  call dein#install()
 "endif
+let g:dein#auto_recache = 1
 
 "appearance----------------------------------------------------------------------------
 set background=dark
@@ -103,45 +103,45 @@ let g:vimtex_compiler_latexmk = {
             \ ],
             \ }
 "airline-------------------------------------
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline_theme='transparent'
-"let g:airline#extensions#tabline#buffer_idx_mode = 1
-"let g:airline#extensions#tabline#buffer_idx_format = {
-"            \ '0': '0 ',
-"            \ '1': '1 ',
-"            \ '2': '2 ',
-"            \ '3': '3 ',
-"            \ '4': '4 ',
-"            \ '5': '5 ',
-"            \ '6': '6 ',
-"            \ '7': '7 ',
-"            \ '8': '8 ',
-"            \ '9': '9 '
-"            \}
-"
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
-"let g:airline_powerline_fonts = 1
-"let g:airline_update_conceal_delay = 1000
-""let g:airline#extensions#tabline#formatter = 'default'
-"
-"if !exists('g:airline_symbols')
-"    let g:airline_symbols = {}
-"endif
-"
-"" powerline symbols
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
-"
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.colnr = ' ℅:'
-"let g:airline_symbols.readonly = ''
-"let g:airline_symbols.linenr = ' :'
-"let g:airline_symbols.maxlinenr = '☰ '
-"let g:airline_symbols.dirty='⚡'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='transparent'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_idx_format = {
+            \ '0': '0 ',
+            \ '1': '1 ',
+            \ '2': '2 ',
+            \ '3': '3 ',
+            \ '4': '4 ',
+            \ '5': '5 ',
+            \ '6': '6 ',
+            \ '7': '7 ',
+            \ '8': '8 ',
+            \ '9': '9 '
+            \}
+
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_powerline_fonts = 1
+let g:airline_update_conceal_delay = 1000
+let g:airline#extensions#tabline#formatter = 'default'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+
+let g:airline_symbols.branch = ''
+let g:airline_symbols.colnr = ' ℅:'
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ' :'
+let g:airline_symbols.maxlinenr = '☰ '
+let g:airline_symbols.dirty='⚡'
 "key---------------------------------
 tnoremap <Esc> <C-\><C-n>
 autocmd TermOpen * startinsert
@@ -151,13 +151,14 @@ command! -nargs=* VT vsplit|wincmd l|vertical resize 80|terminal <args>
 command! -nargs=* V vsplit <args>
 command! -nargs=* TB tabnew <args>
 command! -nargs=* S split <args>
+command! -nargs=* E NERDTree <args>
 "NERDTree-----------------------------
 let g:NERDTreeWinSize = 25
 let NERDTreeShowHidden=1
 "let g:NERDTreeDirArrowExpandable = '?'
 "let g:NERDTreeDirArrowCollapsible = '?'
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-autocmd VimEnter * NERDTree | wincmd p
+"autocmd VimEnter * NERDTree | wincmd p
 "devicons------------------------------------------------------------------
 set guifont=Hack:h14
 "Coc--------------------------
@@ -299,7 +300,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " Add (Neo)Vim's native statusline support
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics
@@ -322,8 +323,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 "ltex---------------------
 let g:coc_filetype_map = {'tex': 'latex'}
-"spaceline-----------------------------------------
-let g:spaceline_seperate_style = 'arrow'
 "behavior------------------------------------------------------------------
 set encoding=utf-8
 scriptencoding utf-8
