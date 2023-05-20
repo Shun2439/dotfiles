@@ -46,18 +46,21 @@ call dein#add('vim-jp/vimdoc-ja') "helpを日本語化
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('skanehira/jumpcursor.vim') "カーソル移動が楽になるプラグイン
 call dein#add('vim-skk/eskk.vim') "日本語用プラグイン？
-call dein#add('Yggdroot/indentLine') "インデント可視化
+"call dein#add('Yggdroot/indentLine') "インデント可視化
 "call dein#add('dense-analysis/ale')
 "call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-surround')
+call dein#add('SirVer/ultisnips')
+call dein#add('honza/vim-snippets')
+call dein#add('ctrlpvim/ctrlp.vim')
 
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-call dein#add('powerline/powerline-fonts')
+"call dein#add('vim-airline/vim-airline')
+"call dein#add('vim-airline/vim-airline-themes')
+"call dein#add('powerline/powerline-fonts')
 
 call dein#add('preservim/nerdtree')
 
-call dein#add('connorholyday/vim-snazzy')
+call dein#add('shaunsingh/nord.nvim')
 call dein#add('ryanoasis/vim-devicons')
 " Required:
 call dein#end()
@@ -74,8 +77,8 @@ let g:dein#auto_recache = 1
 
 "appearance----------------------------------------------------------------------------
 set background=dark
-set number
-colorscheme snazzy 
+"set number
+colorscheme nord 
 "indent guides------------------------------------------------
 let g:indent_guides_enable_on_vim_startup = 1
 hi IndentGuidesOdd  ctermbg=black
@@ -153,6 +156,10 @@ command! -nargs=* V vsplit <args>
 command! -nargs=* TB tabnew <args>
 command! -nargs=* S split <args>
 command! -nargs=* E NERDTree <args>
+command! -nargs=* H resize 0|wincmd p <args>
+command! -nargs=* F resize 15 <args>
+command! -nargs=* VH vertical resize 0|wincmd p <args>
+command! -nargs=* VF vertical resize 80 <args>
 "NERDTree-----------------------------
 let g:NERDTreeWinSize = 25
 let NERDTreeShowHidden=1
@@ -352,3 +359,8 @@ function! Tex()
     exec "!platex ".fname.".tex"
     exec "!dvipdfmx ".fname.".dvi"
 endfunction
+"----------------------------------------------
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
