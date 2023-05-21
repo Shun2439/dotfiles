@@ -6,14 +6,14 @@ endif
 if has("win64")
 
     " Required:
-    set runtimepath+=C:\Users\shunt\.cache\dein\repos\github.com\Shougo\dein.vim
+    set runtimepath+=\Users\shunt\.cache\dein\repos\github.com\Shougo\dein.vim
 
     " Required:
-    call dein#begin('C:\Users\shunt\.cache\dein')
+    call dein#begin('\Users\shunt\.cache\dein')
 
     " Let dein manage dein
     " Required:
-    call dein#add('C:\Users\shunt\.cache\dein\repos\github.com\Shougo\dein.vim')
+    call dein#add('\Users\shunt\.cache\dein\repos\github.com\Shougo\dein.vim')
 
 else
 
@@ -58,10 +58,13 @@ call dein#add('ctrlpvim/ctrlp.vim')
 "call dein#add('vim-airline/vim-airline-themes')
 "call dein#add('powerline/powerline-fonts')
 
-call dein#add('preservim/nerdtree')
+"call dein#add('preservim/nerdtree')
 
 call dein#add('shaunsingh/nord.nvim')
+"nord theme
+
 call dein#add('ryanoasis/vim-devicons')
+
 " Required:
 call dein#end()
 
@@ -77,7 +80,6 @@ let g:dein#auto_recache = 1
 
 "appearance----------------------------------------------------------------------------
 set background=dark
-"set number
 colorscheme nord 
 "indent guides------------------------------------------------
 let g:indent_guides_enable_on_vim_startup = 1
@@ -89,7 +91,7 @@ let g:indent_guides_enable_guide_size = 1
 "search---------------------------------------------------------
 nmap [j <Plug>(jumpcursor-jump)
 "status line---------------------------------------------------
-set laststatus=2
+"set laststatus=2
 "ale-------------------------------------------------------------
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
@@ -106,67 +108,64 @@ let g:vimtex_compiler_latexmk = {
             \ ],
             \ }
 "airline-------------------------------------
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='transparent'
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#buffer_idx_format = {
-            \ '0': '0 ',
-            \ '1': '1 ',
-            \ '2': '2 ',
-            \ '3': '3 ',
-            \ '4': '4 ',
-            \ '5': '5 ',
-            \ '6': '6 ',
-            \ '7': '7 ',
-            \ '8': '8 ',
-            \ '9': '9 '
-            \}
-
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_powerline_fonts = 1
-let g:airline_update_conceal_delay = 1000
-let g:airline#extensions#tabline#formatter = 'default'
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme='transparent'
+"let g:airline#extensions#tabline#buffer_idx_mode = 1
+"let g:airline#extensions#tabline#buffer_idx_format = {
+"            \ '0': '0 ',
+"            \ '1': '1 ',
+"            \ '2': '2 ',
+"            \ '3': '3 ',
+"            \ '4': '4 ',
+"            \ '5': '5 ',
+"            \ '6': '6 ',
+"            \ '7': '7 ',
+"            \ '8': '8 ',
+"            \ '9': '9 '
+"            \}
+"
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+"let g:airline_powerline_fonts = 1
+"let g:airline_update_conceal_delay = 1000
+"let g:airline#extensions#tabline#formatter = 'default'
+"
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
 
 " powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-
-let g:airline_symbols.branch = ''
-let g:airline_symbols.colnr = ' ℅:'
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ' :'
-let g:airline_symbols.maxlinenr = '☰ '
-let g:airline_symbols.dirty='⚡'
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.colnr = ' ℅:'
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ' :'
+"let g:airline_symbols.maxlinenr = '☰ '
+"let g:airline_symbols.dirty='⚡'
 "key---------------------------------
-"nnoremap {gg=G} {g=}
 tnoremap <Esc> <C-\><C-n>
 autocmd TermOpen * startinsert
 command! -nargs=* T split|wincmd j|resize 15|set nonumber|terminal <args>
 command! -nargs=* VT vsplit|wincmd l|vertical resize 80|set nonumber|terminal <args>
 "nnoremap T :vsplit | wincmd j | resize 15 | terminal <CR>
 command! -nargs=* V vsplit <args>
-command! -nargs=* TB tabnew <args>
-command! -nargs=* S split <args>
-command! -nargs=* E NERDTree <args>
 command! -nargs=* H resize 0|wincmd p <args>
 command! -nargs=* F resize 15 <args>
 command! -nargs=* VH vertical resize 0|wincmd p <args>
 command! -nargs=* VF vertical resize 80 <args>
 "NERDTree-----------------------------
-let g:NERDTreeWinSize = 25
-let NERDTreeShowHidden=1
+"let g:NERDTreeWinSize = 25
+"let NERDTreeShowHidden=1
 "let g:NERDTreeDirArrowExpandable = '?'
 "let g:NERDTreeDirArrowCollapsible = '?'
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+"autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 "autocmd VimEnter * NERDTree | wincmd p
+
 "devicons------------------------------------------------------------------
 set guifont=Hack:h14
 "Coc--------------------------
