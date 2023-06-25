@@ -17,9 +17,9 @@
 
 - [vim-airline](https://github.com/vim-airline/vim-airline)
 
--[vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+   - [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 
--[powerline-fonts](https://github.com/powerline/powerline-fonts)
+   - [powerline-fonts](https://github.com/powerline/powerline-fonts)
 
 ### help
 
