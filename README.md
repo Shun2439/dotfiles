@@ -39,8 +39,8 @@
 |`:B`|binary mode|
 
 - When you open the terminal you are in insert mode
-- Just press <esc> in terminal to enter normal mode
-- Toggle highlighting by pressing the <esc> twice
+- Just press \<esc\> in terminal to enter normal mode
+- Toggle highlighting by pressing the \<esc\> twice
 
 ---
 
