@@ -61,7 +61,7 @@ call dein#add('powerline/powerline-fonts')
 
 "call dein#add('preservim/nerdtree')
 
-call dein#add('shaunsingh/nord.nvim')
+"call dein#add('shaunsingh/nord.nvim')
 call dein#add('turbio/bracey.vim')
 
 "theme
