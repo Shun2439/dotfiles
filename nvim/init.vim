@@ -77,9 +77,9 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 let g:dein#auto_recache = 1
 
@@ -184,6 +184,10 @@ command! -nargs=* VH vertical resize 0|wincmd p <args>
 command! -nargs=* VO vertical resize 80 <args>
 command! -nargs=* B %!xxd <args>
 
+"バッファの切替
+nnoremap <silent> <C-j> :bprev<CR>
+nnoremap <silent> <C-k> :bnext<CR>
+
 " ESCキー2度押しでハイライトの切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
@@ -200,10 +204,12 @@ set clipboard+=unnamedplus "link clipboard with neovim
 "制御文字を表示
 set list
 
-"auto compile tex----------------------------------------
+"TeXで表示が修正されるのをなくす
 let g:tex_conceal = ""
 
-autocmd BufWritePost *.tex silent! call Tex()
+"auto compile tex----------------------------------------
+
+"autocmd BufWritePost *.tex silent! call Tex()
 function! Tex()
     let fname = expand('%:p:r')
     exec "w"
