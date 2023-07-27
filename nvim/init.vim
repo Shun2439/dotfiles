@@ -43,8 +43,8 @@ endif
 " Add or remove your plugins here like this:
 call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' }) "補完
 call dein#add('vim-jp/vimdoc-ja') "helpを日本語化
-call dein#add('nathanaelkane/vim-indent-guides')
-"call dein#add('skanehira/jumpcursor.vim') "カーソル移動が楽になるプラグイン
+"call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('skanehira/jumpcursor.vim') "カーソル移動が楽になるプラグイン
 "call dein#add('vim-skk/eskk.vim') "日本語用プラグイン？
 "call dein#add('Yggdroot/indentLine') "インデント可視化
 "call dein#add('dense-analysis/ale')
@@ -55,17 +55,16 @@ call dein#add('bfrg/vim-cpp-modern')
 "call dein#add('honza/vim-snippets')
 "call dein#add('ctrlpvim/ctrlp.vim')
 
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-call dein#add('powerline/powerline-fonts')
+"call dein#add('vim-airline/vim-airline')
+"call dein#add('vim-airline/vim-airline-themes')
+"call dein#add('powerline/powerline-fonts')
 
 "call dein#add('preservim/nerdtree')
 
-"call dein#add('shaunsingh/nord.nvim')
 call dein#add('turbio/bracey.vim')
 
 "theme
-call dein#add('connorholyday/vim-snazzy')
+call dein#add('shaunsingh/nord.nvim')
 
 "call dein#add('ryanoasis/vim-devicons')
 
@@ -77,23 +76,26 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
+"if dein#check_install()
+"  call dein#install()
+"endif
 
 let g:dein#auto_recache = 1
 
 "appearance----------------------------------------------------------------------------
 set background=dark
-colorscheme snazzy
+colorscheme nord
+"set number
+
+set matchtime=15
 
 "indent guides------------------------------------------------
-let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_enable_on_vim_startup = 1
 "hi IndentGuidesOdd  ctermbg=black
 "hi IndentGuidesEven ctermbg=darkgrey
 set ts=4 sw=4 et
-let g:indent_guides_start_level = 2
-let g:indent_guides_enable_guide_size = 1
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_enable_guide_size = 1
 
 "move---------------------------------------------------------
 nmap [j <Plug>(jumpcursor-jump)

@@ -14,7 +14,7 @@ config.font = wezterm.font 'Hack'
 
 font_size = 10.0
 
-config.color_scheme = 'Snazzy (Gogh)'
+config.color_scheme = 'nord'
 
 config.default_prog = {'C:\\Program Files\\PowerShell\\7\\pwsh.exe', '-l'}
 
