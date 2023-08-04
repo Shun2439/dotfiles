@@ -13,7 +13,7 @@
 
 ### theme
 
-[nord theme](https://github.com/nordtheme/vim)
+- [nord theme](https://github.com/nordtheme/vim)
 <!--
 - [vim-snazzy](https://github.com/connorholyday/vim-snazzy)
 
