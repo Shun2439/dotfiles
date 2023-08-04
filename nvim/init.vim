@@ -64,7 +64,7 @@ call dein#add('bfrg/vim-cpp-modern')
 call dein#add('turbio/bracey.vim')
 
 "theme
-call dein#add('shaunsingh/nord.nvim')
+call dein#add('nordtheme/vim')
 
 "call dein#add('ryanoasis/vim-devicons')
 
