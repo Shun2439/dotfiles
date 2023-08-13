@@ -1,0 +1,11 @@
+[[plugins]]
+repo = 'skanehira/jumpcursor.vim' #カーソル移動が楽になるプラグイン
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja' #helpを日本語化
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'bfrg/vim-cpp-modern'

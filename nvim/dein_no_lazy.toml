@@ -1,0 +1,7 @@
+[[plugins]] #補完
+repo = 'neoclide/coc.nvim'
+merged =  '0'
+rev = 'release'
+
+[[plugins]]
+repo = 'nordtheme/vim'
