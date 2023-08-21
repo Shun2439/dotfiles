@@ -61,9 +61,9 @@ filetype plugin indent on
 
 syntax enable
 
-source ./keymap.vim
+runtime keymap.vim
 
-source ./tex_config.vim
+runtime tex_config.vim
 
 "if dein#check_install()
 "  call dein#install()
