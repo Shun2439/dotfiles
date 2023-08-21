@@ -2,6 +2,98 @@
 repo = 'neoclide/coc.nvim'
 merged =  '0'
 rev = 'release'
+hook_add = '''
+
+let g:coc_filetype_map = {'tex': 'latex'}
+
+let g:tex_flavor = 'latex'
+let g:vimtex_compiler_latexmk = {
+            \ 'executable': 'latexmk',
+            \ 'options': [
+            \   '-verbose',
+            \   '-file-line-error',
+            \   '-synctex=1',
+            \   '-interaction=nonstopmode',
+            \   '-pdf',
+            \ ],
+            \ }
+
+'''
+
 
 [[plugins]]
 repo = 'nordtheme/vim'
+hook_add = '''
+
+set background=dark
+colorscheme nord
+
+'''
+
+#[[plugins]]
+#repo = 'vim-airline/vim-airline'
+#hook_add = '''
+#
+#let g:airline#extensions#tabline#enabled = 1
+#let g:airline_theme='transparent'
+#let g:airline#extensions#tabline#buffer_idx_mode = 1
+#let g:airline#extensions#tabline#buffer_idx_format = {
+#           \ '0': '0 ',
+#            \ '1': '1 ',
+#            \ '2': '2 ',
+#            \ '3': '3 ',
+#            \ '4': '4 ',
+#            \ '5': '5 ',
+#            \ '6': '6 ',
+#            \ '7': '7 ',
+#            \ '8': '8 ',
+#            \ '9': '9 '
+#            \}
+#
+#let g:airline#extensions#tabline#left_sep = ' '
+#let g:airline#extensions#tabline#left_alt_sep = '|'
+#let g:airline_powerline_fonts = 1
+#let g:airline_update_conceal_delay = 1000
+#let g:airline#extensions#tabline#formatter = 'default'
+#
+#if !exists('g:airline_symbols')
+#    let g:airline_symbols = {}
+#endif
+#
+#'''
+#
+#
+#[[plugins]]
+#repo = 'vim-airline/vim-airline-themes'
+#
+#[[plugins]]
+#repo = 'powerline/powerline-fonts'
+#hook_add = '''
+#
+#let g:airline_left_sep = ''
+#let g:airline_left_alt_sep = ''
+#
+#let g:airline_right_sep = ''
+#let g:airline_right_alt_sep = ''
+#
+#let g:airline_symbols.branch = ''
+#let g:airline_symbols.colnr = ' ℅:'
+#let g:airline_symbols.readonly = ''
+#let g:airline_symbols.linenr = ' :'
+#let g:airline_symbols.maxlinenr = '☰ '
+#let g:airline_symbols.dirty='⚡'
+#
+#'''
+
+#[[plugins]]
+#repo = 'preservim/nerdtree'
+#hook_add = '''
+#
+#let g:NERDTreeWinSize = 25
+#let NERDTreeShowHidden=1
+#let g:NERDTreeDirArrowExpandable = '?'
+#let g:NERDTreeDirArrowCollapsible = '?'
+#autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+#autocmd VimEnter * NERDTree | wincmd p
+#
+#'''
