@@ -1,6 +1,6 @@
 "Scripts-----------------------------
 if &compatible
-    set nocompatible               " Be iMproved
+    set nocompatible
 endif
 
 if has("win64")
@@ -15,7 +15,6 @@ if has("win64")
 
 else
 "linux
-
     let $CACHE = expand('~/.cache')
 
     if !isdirectory($CACHE)
@@ -30,11 +29,8 @@ else
 
             if !isdirectory(s:dein_dir)
                 execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
-
             endif
-
         endif
-
         execute 'set runtimepath^=' .. substitute(
                     \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
     endif
@@ -46,7 +42,6 @@ else
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
     let s:toml_dir = expand('~/.config/nvim/')
-
 endif
 
 call dein#load_toml(s:toml_dir.'dein_no_lazy.toml', {'lazy':0})

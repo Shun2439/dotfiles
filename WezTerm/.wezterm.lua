@@ -17,7 +17,8 @@ font_size = 10.0
 config.color_scheme = 'nord'
 
 -- config.default_prog = {'C:\\Program Files\\PowerShell\\7\\pwsh.exe', '-l'}
-config.default_prog = {'C:\\windows\\system32\\cmd.exe', '-l'}
+-- config.default_prog = {'C:\\windows\\system32\\cmd.exe'}
+config.default_prog = {'C:\\Program Files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_1.2.5.0_x64__8wekyb3d8bbwe\\wsl.exe'}
 
 config.keys = {
     {
