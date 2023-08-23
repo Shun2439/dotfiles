@@ -1,31 +1,19 @@
+-- 何かの宣言？
 local wezterm = require "wezterm"
 
 local config = {}
 
+-- OpenGLに最適化する？
 front_end = "OpenGL"
--- config.window_background_image = 'C:/Users/shunt/Pictures/Saved Pictures/4k.jpg'
-config.colors = {
-    -- cursor_bg =  '#00F0F0',
-    cursor_fg =  'black',
-    -- cursor_border = '#52ad70',
-}
 
+-- 使うフォントを指定する
 config.font = wezterm.font 'Hack'
 
-font_size = 10.0
-
+-- テーマを指定する
 config.color_scheme = 'nord'
 
--- config.default_prog = {'C:\\Program Files\\PowerShell\\7\\pwsh.exe', '-l'}
--- config.default_prog = {'C:\\windows\\system32\\cmd.exe'}
-config.default_prog = {'C:\\Program Files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_1.2.5.0_x64__8wekyb3d8bbwe\\wsl.exe'}
-
-config.keys = {
-    {
-        key = '"',
-        mods = 'CTRL|SHIFT|ALT',
-        action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
-    },
-}
+-- weztermの起動時に呼び出すシェルを指定する
+-- config.default_prog = {'C:\\Program Files\\PowerShell\\7\\pwsh.exe', '-l'} -- powershell
+config.default_prog = {'C:\\Program Files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_1.2.5.0_x64__8wekyb3d8bbwe\\wsl.exe'} --wsl
 
 return config
