@@ -3,14 +3,8 @@ local wezterm = require "wezterm"
 
 local config = {}
 
--- OpenGLに最適化する？
-front_end = "OpenGL"
-
 -- 使うフォントを指定する
-config.font = wezterm.font 'Hack'
-
--- テーマを指定する
-config.color_scheme = 'nord'
+-- config.font = wezterm.font 'Hack'
 
 -- weztermの起動時に呼び出すシェルを指定する
 -- config.default_prog = {'C:\\Program Files\\PowerShell\\7\\pwsh.exe', '-l'} -- powershell
