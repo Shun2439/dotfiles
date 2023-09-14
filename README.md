@@ -1,3 +1,1 @@
 # configs
-
-[neovim](./neovim.md)

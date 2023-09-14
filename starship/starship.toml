@@ -1,8 +1,0 @@
-# ~/.config/starship.toml
-
-# Use custom format
-#format = '''
-#[┌───────────────────>](#00d9da)
-#[│](#00d9da)$directory$rust$package
-#[└─>](#00d9da)'''
-format = '[\(～￣▽￣\)～ ](#00ffda)$all'
