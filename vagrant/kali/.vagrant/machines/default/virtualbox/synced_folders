@@ -1,1 +1,0 @@
-{"virtualbox":{"/home/vagrant/windows":{"guestpath":"/home/vagrant/windows","hostpath":"C:/Users/shunt","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/shunt/workdir/config/vagrant","disabled":false,"__vagrantfile":true}}}
