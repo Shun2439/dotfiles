@@ -1,3 +1,35 @@
+[[plugins]]
+repo = 'bfrg/vim-cpp-modern'
+hook_add = '''
+
+let g:cpp_simple_highlight = 1
+
+'''
+
+[[plugins]]
+repo = 'skanehira/jumpcursor.vim' #カーソル移動が楽になるプラグイン
+hook_add = '''
+
+nmap [j <Plug>(jumpcursor-jump)
+
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_post_update = '''
+
+TSUpdate
+
+'''
+
+[[plugins]]
+repo = 'nordtheme/vim'
+hook_add = '''
+
+colorscheme nord
+
+'''
+
 [[plugins]] #補完
 repo = 'neoclide/coc.nvim'
 merged =  '0'
@@ -20,60 +52,34 @@ let g:vimtex_compiler_latexmk = {
 
 '''
 
-#[[plugins]]
-#repo = 'vim-airline/vim-airline'
-#hook_add = '''
-#
-#let g:airline#extensions#tabline#enabled = 1
-#let g:airline_theme='transparent'
-#let g:airline#extensions#tabline#buffer_idx_mode = 1
-#let g:airline#extensions#tabline#buffer_idx_format = {
-#           \ '0': '0 ',
-#            \ '1': '1 ',
-#            \ '2': '2 ',
-#            \ '3': '3 ',
-#            \ '4': '4 ',
-#            \ '5': '5 ',
-#            \ '6': '6 ',
-#            \ '7': '7 ',
-#            \ '8': '8 ',
-#            \ '9': '9 '
-#            \}
-#
-#let g:airline#extensions#tabline#left_sep = ' '
-#let g:airline#extensions#tabline#left_alt_sep = '|'
-#let g:airline_powerline_fonts = 1
-#let g:airline_update_conceal_delay = 1000
-#let g:airline#extensions#tabline#formatter = 'default'
-#
-#if !exists('g:airline_symbols')
-#    let g:airline_symbols = {}
-#endif
-#
-#'''
-#
-#
-#[[plugins]]
-#repo = 'vim-airline/vim-airline-themes'
-#
-#[[plugins]]
-#repo = 'powerline/powerline-fonts'
-#hook_add = '''
-#
-#let g:airline_left_sep = ''
-#let g:airline_left_alt_sep = ''
-#
-#let g:airline_right_sep = ''
-#let g:airline_right_alt_sep = ''
-#
-#let g:airline_symbols.branch = ''
-#let g:airline_symbols.colnr = ' ℅:'
-#let g:airline_symbols.readonly = ''
-#let g:airline_symbols.linenr = ' :'
-#let g:airline_symbols.maxlinenr = '☰ '
-#let g:airline_symbols.dirty='⚡'
-#
-#'''
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+
+let g:airline_powerline_fonts = 1
+
+let g:airline_theme='nord'
+
+let g:airline#extensions#tabline#enabled = 1
+
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+'''
 
 #[[plugins]]
 #repo = 'preservim/nerdtree'

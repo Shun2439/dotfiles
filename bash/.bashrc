@@ -2,10 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-tmux
-
-clear
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -122,4 +118,13 @@ fi
 
 alias ghidra="~/ghidra_10.3.2_PUBLIC/ghidraRun"
 alias pwninit="/opt/pwninit"
-alias ls="ls -a"
+alias grep="grep --color=always"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+. ~/z/z.sh
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+eval "$(starship init bash)"
