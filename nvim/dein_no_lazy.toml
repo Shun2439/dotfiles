@@ -1,54 +1,13 @@
 [[plugins]]
-repo = 'bfrg/vim-cpp-modern'
-hook_add = '''
-
-let g:cpp_simple_highlight = 1
-
-'''
-
-[[plugins]]
-repo = 'skanehira/jumpcursor.vim' #カーソル移動が楽になるプラグイン
-hook_add = '''
-
-nmap [j <Plug>(jumpcursor-jump)
-
-'''
-
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-hook_post_update = '''
-
-TSUpdate
-
-'''
-
-[[plugins]]
 repo = 'nordtheme/vim'
 hook_add = '''
 
 colorscheme nord
 
 '''
+lua_add = '''
 
-[[plugins]] #補完
-repo = 'neoclide/coc.nvim'
-merged =  '0'
-rev = 'release'
-hook_add = '''
-
-let g:coc_filetype_map = {'tex': 'latex'}
-
-let g:tex_flavor = 'latex'
-let g:vimtex_compiler_latexmk = {
-            \ 'executable': 'latexmk',
-            \ 'options': [
-            \   '-verbose',
-            \   '-file-line-error',
-            \   '-synctex=1',
-            \   '-interaction=nonstopmode',
-            \   '-pdf',
-            \ ],
-            \ }
+--vim.cmd.colorscheme('nord')
 
 '''
 
@@ -58,38 +17,26 @@ hook_add = '''
 
 let g:airline_powerline_fonts = 1
 
-let g:airline_theme='nord'
+let g:airline_theme = 'nord'
 
 let g:airline#extensions#tabline#enabled = 1
+
+'''
+lua_add = '''
+
+vim.g.airline_powerline_fonts = 1
+
+vim.g.airline_theme = 'nord'
+
+vim.cmd.colorscheme('default')
+
+vim.g['airline#extensions#tabline#enabled'] = 1
 
 '''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
+#アイコン
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
-
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-hook_add = '''
-
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-
-'''
-
-#[[plugins]]
-#repo = 'preservim/nerdtree'
-#hook_add = '''
-#
-#let g:NERDTreeWinSize = 25
-#let NERDTreeShowHidden=1
-#let g:NERDTreeDirArrowExpandable = '?'
-#let g:NERDTreeDirArrowCollapsible = '?'
-#autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-#autocmd VimEnter * NERDTree | wincmd p
-#
-#'''

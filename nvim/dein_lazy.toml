@@ -1,35 +1,13 @@
+#カーソル移動が楽になるプラグイン
 [[plugins]]
-repo = 'vim-jp/vimdoc-ja' #helpを日本語化
+repo = 'skanehira/jumpcursor.vim'
 hook_add = '''
 
-set helplang=ja
+nmap [j <Plug>(jumpcursor-jump)
 
 '''
+lua_add = '''
 
-[[plugins]]
-repo = 'tpope/vim-surround'
+vim.api.nvim_set_keymap("n", "[j", "<Plug>(jumpcursor-jump)", {silent = true})
 
-[[plugins]]
-repo = 'junegunn/fzf'
-
-#[[plugins]]
-#repo = 'dense-analysis/ale'
-#hook_add = '''
-#
-#let g:ale_lint_on_text_changed = 'never'
-#let g:ale_lint_on_enter = 0
-#
-#'''
-
-#[[plugins]]
-#repo = 'nathanaelkane/vim-indent-guides'
-#hook_add = '''
-#
-#let g:indent_guides_enable_on_vim_startup = 1
-#hi IndentGuidesOdd  ctermbg=black
-#hi IndentGuidesEven ctermbg=darkgrey
-#set ts=4 sw=4 et
-#let g:indent_guides_start_level = 2
-#let g:indent_guides_enable_guide_size = 1
-#
-#'''
+'''
