@@ -29,7 +29,7 @@ else
 	--必要？
 	vim.call('dein#add', dein_repo_dir)
 
-	toml_dir = vim.env.HOME..'/.config/nvim/'
+	toml_dir = vim.env.HOME..'/.config/nvim/plugins/'
 
 end
 

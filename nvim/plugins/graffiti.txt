@@ -11,20 +11,6 @@ vim.g.cpp_simple_highlight = 1
 
 '''
 
-#カーソル移動が楽になるプラグイン
-[[plugins]]
-repo = 'skanehira/jumpcursor.vim'
-hook_add = '''
-
-nmap [j <Plug>(jumpcursor-jump)
-
-'''
-lua_add = '''
-
-vim.api.nvim_set_keymap("n", "[j", "<Plug>(jumpcursor-jump)", {silent = true})
-
-'''
-
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 hook_post_update = '''
@@ -35,19 +21,6 @@ TSUpdate
 lua_post_update = '''
 
 TSUpdate
-
-'''
-
-[[plugins]]
-repo = 'nordtheme/vim'
-hook_add = '''
-
-colorscheme nord
-
-'''
-lua_add = '''
-
---vim.cmd.colorscheme('nord')
 
 '''
 
@@ -91,36 +64,6 @@ let g:vimtex_compiler_latexmk = {
 ]])
 
 '''
-
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-hook_add = '''
-
-let g:airline_powerline_fonts = 1
-
-let g:airline_theme = 'nord'
-
-let g:airline#extensions#tabline#enabled = 1
-
-'''
-lua_add = '''
-
-vim.g.airline_powerline_fonts = 1
-
-vim.g.airline_theme = 'nord'
-
-vim.cmd.colorscheme('default')
-
-vim.g['airline#extensions#tabline#enabled'] = 1
-
-'''
-
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
-
-#アイコン
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
 
 #[[plugins]]
 #repo = 'ctrlpvim/ctrlp.vim'

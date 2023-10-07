@@ -5,7 +5,7 @@ local config = {
     window_decorations = "RESIZE",
 
     -- 透過度
-    window_background_opacity = 0.95,
+    --window_background_opacity = 0.95,
 
     hide_tab_bar_if_only_one_tab = true,
 }
