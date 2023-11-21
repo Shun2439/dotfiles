@@ -1,5 +1,13 @@
 [[plugins]]
-repo = 'dart-lang/dart-vim-plugin'
+repo = 'natebosch/vim-lsc'
+hook_add = '''
 
-#[[plugins]]
-#repo = 'natebosch/vim-lsc'
+let g:lsc_auto_map = v:true
+
+'''
+
+[[plugins]]
+repo = 'natebosch/vim-lsc-dart'
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
