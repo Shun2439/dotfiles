@@ -1,2 +1,5 @@
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
+
+#[[plugins]]
+#repo = 'natebosch/vim-lsc'
