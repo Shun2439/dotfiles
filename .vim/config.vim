@@ -6,9 +6,13 @@ set autoindent
 
 set cindent
 
-filetype indent on
+set omnifunc=true
+
+filetype indent plugin on
 
 syntax enable
+
+hi Normal guibg=NONE ctermbg=NONE
 
 "netrw-----------------------------
 "tree形式
