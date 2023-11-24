@@ -1,20 +1,35 @@
-colorscheme torte
-
+"
+"indent
+"
 set sw=4 ts=4
 
 set autoindent
 
 set cindent
+"
+"
+"
 
+"
+"
+"
 set omnifunc=true
 
 filetype indent plugin on
 
 syntax enable
 
-hi Normal guibg=NONE ctermbg=NONE
+colorscheme torte
 
-"netrw-----------------------------
+"transparent
+hi Normal guibg=NONE ctermbg=NONE
+"
+"
+"
+
+"
+"netrw
+"
 "tree形式
 let g:netrw_liststyle=3
 
@@ -32,3 +47,6 @@ let g:netrw_preview=1
 
 "起動時にnetrwを表示
 "au VimEnter * F
+"
+"
+"
