@@ -1,0 +1,37 @@
+[[plugins]]
+repo = 'natebosch/vim-lsc'
+hook_add = '''
+
+let g:lsc_auto_map = v:true
+
+'''
+
+#
+#dart
+#
+
+[[plugins]]
+repo = 'natebosch/vim-lsc-dart'
+
+#
+#c++
+#
+[[plugins]]
+repo = 'xavierd/clang_complete'
+hook_add = '''
+
+let g:clang_library_path='/usr/lib/llvm-14/lib/libclang-14.so.1'
+
+'''
+
+[[plugins]]
+repo = 'rhysd/vim-clang-format'
+hook_add = '''
+
+au FileType c ClangFormatAutoEnable
+
+'''
+#
+#
+#
+

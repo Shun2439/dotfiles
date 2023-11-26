@@ -1,13 +1,29 @@
-[[plugins]]
-repo = 'natebosch/vim-lsc'
-hook_add = '''
-
-let g:lsc_auto_map = v:true
-
-'''
-
-[[plugins]]
-repo = 'natebosch/vim-lsc-dart'
-
+#
+#dart
+#
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
+#
+#
+#
+
+#
+#c++
+#
+[[plugins]]
+repo = 'bfrg/vim-cpp-modern'
+hook_add = '''
+
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1
+let g:cpp_simple_highlight = 1
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+
+'''
+#
+#
+#
+
