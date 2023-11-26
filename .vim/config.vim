@@ -13,16 +13,21 @@ set cindent
 "
 "
 "
+set number
+
 set omnifunc=true
 
 filetype indent plugin on
 
 syntax enable
 
-colorscheme torte
-
 "transparent
 hi Normal guibg=NONE ctermbg=NONE
+
+hi LineNr ctermfg=White
+
+hi Comment ctermfg=White
+
 "
 "
 "
@@ -50,3 +55,5 @@ let g:netrw_preview=1
 "
 "
 "
+
+
