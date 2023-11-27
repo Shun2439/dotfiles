@@ -21,12 +21,12 @@ filetype indent plugin on
 
 syntax enable
 
-"transparent
-hi Normal guibg=NONE ctermbg=NONE
+"number color
+hi LineNr ctermfg=LightGray
 
-hi LineNr ctermfg=White
+hi Comment ctermfg=LightGray
 
-hi Comment ctermfg=White
+hi Visual ctermbg=LightGray
 
 "
 "
