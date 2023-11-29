@@ -1,4 +1,12 @@
 "
+"
+"
+set encoding=UTF-8
+"
+"
+"
+
+"
 "indent
 "
 set sw=4 ts=4
@@ -22,11 +30,11 @@ filetype indent plugin on
 syntax enable
 
 "number color
-hi LineNr ctermfg=LightGray
+hi LineNr ctermfg=LightBlue
 
-hi Comment ctermfg=LightGray
+hi Comment ctermfg=DarkGreen
 
-hi Visual ctermbg=LightGray
+hi Visual ctermbg=DarkGray
 
 "
 "
