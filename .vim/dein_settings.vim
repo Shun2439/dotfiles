@@ -36,7 +36,9 @@ call dein#load_toml('~/.vim/toml/dein_lazy.toml', {'lazy' : 1})
 
 call dein#end()
 
-call dein#save_state()
+if dein#check_install()
+	call dein#install()
+endif
 "
 "
 "

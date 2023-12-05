@@ -1,3 +1,6 @@
+#
+#
+#
 [[plugins]]
 repo = 'natebosch/vim-lsc'
 hook_add = '''
@@ -6,12 +9,20 @@ let g:lsc_auto_map = v:true
 
 '''
 
+[[plugins]]
+repo = 'cohama/lexima.vim'
+#
+#
+#
+
 #
 #dart
 #
-
 [[plugins]]
 repo = 'natebosch/vim-lsc-dart'
+#
+#
+#
 
 #
 #c++
@@ -24,14 +35,16 @@ let g:clang_library_path='/usr/lib/llvm-14/lib/libclang-14.so.1'
 
 '''
 
-[[plugins]]
-repo = 'rhysd/vim-clang-format'
-hook_add = '''
-
-au FileType c ClangFormatAutoEnable
-
-'''
+#[[plugins]]
+#repo = 'rhysd/vim-clang-format'
+#hook_add = '''
+#
+#au FileType c ClangFormatAutoEnable
+#
+#let g:clang_format#style_options = {
+#	\"BasedOnStyle" : "WebKit"}
+#
+#	'''
 #
 #
 #
-

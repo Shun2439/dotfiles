@@ -1,5 +1,5 @@
 "
-"
+"main(?)
 "
 set encoding=UTF-8
 "
@@ -29,13 +29,11 @@ filetype indent plugin on
 
 syntax enable
 
-"number color
 hi LineNr ctermfg=LightBlue
 
 hi Comment ctermfg=DarkGreen
 
 hi Visual ctermbg=DarkGray
-
 "
 "
 "
@@ -63,5 +61,3 @@ let g:netrw_preview=1
 "
 "
 "
-
-
