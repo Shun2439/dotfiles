@@ -3,12 +3,20 @@
 #
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
+
+hook_add = '''
+
+let g:dart_html_in_string = v:true
+let g:dart_style_guide = 4
+let g:dart_format_on_save = v:true
+
+'''
 #
 #
 #
 
 #
-#c++
+#C++
 #
 [[plugins]]
 repo = 'bfrg/vim-cpp-modern'
@@ -34,6 +42,9 @@ let g:cpp_posix_standard = 1
 repo = 'nordtheme/vim'
 hook_add = '''
 
+hi LineNr ctermfg=LightBlue
+hi Comment ctermfg=DarkGreen
+hi Visual ctermbg=DarkGray
 colorscheme nord
 
 '''
@@ -72,20 +83,13 @@ repo = 'marcuscf/vim-lua'
 [[plugins]]
 repo = 'vim-python/python-syntax'
 hook_add = '''
+
 let g:python_highlight_all = 1
+
 '''
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
-#
-#
-#
-
-#
-#
-#
-#[[plugins]]
-#repo = 'neoclide/coc.nvim'
 #
 #
 #

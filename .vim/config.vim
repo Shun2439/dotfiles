@@ -28,12 +28,10 @@ set omnifunc=true
 filetype indent plugin on
 
 syntax enable
-
 hi LineNr ctermfg=LightBlue
-
 hi Comment ctermfg=DarkGreen
-
 hi Visual ctermbg=DarkGray
+
 "
 "
 "

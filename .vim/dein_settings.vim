@@ -30,9 +30,13 @@ call dein#begin("~/.cache/dein/")
 
 call dein#add(s:dir)
 
-call dein#load_toml('~/.vim/toml/dein.toml', {'lazy' : 0})
+let $DEIN_TOML='~/.vim/toml/dein.toml'
 
-call dein#load_toml('~/.vim/toml/dein_lazy.toml', {'lazy' : 1})
+let $DEIN_LAZY_TOML='~/.vim/toml/dein_lazy.toml'
+
+call dein#load_toml($DEIN_TOML, {'lazy' : 0})
+
+call dein#load_toml($DEIN_LAZY_TOML, {'lazy' : 1})
 
 call dein#end()
 
