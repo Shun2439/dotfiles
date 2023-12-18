@@ -8,7 +8,7 @@ local config = {
 
 	hide_tab_bar_if_only_one_tab = true,
 
-	-- color_scheme = 'nord',
+	color_scheme = 'nord',
 
 	-- 使うフォントを指定する
 	font = wezterm.font 'Hack NF',
