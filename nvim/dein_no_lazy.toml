@@ -1,0 +1,60 @@
+#
+#
+#
+[[plugins]] #補完
+repo = 'neoclide/coc.nvim'
+merged =  '0'
+rev = 'release'
+hook_add = '''
+
+let g:coc_filetype_map = {'tex': 'latex'}
+
+let g:tex_flavor = 'latex'
+let g:vimtex_compiler_latexmk = {
+            \ 'executable': 'latexmk',
+            \ 'options': [
+            \   '-verbose',
+            \   '-file-line-error',
+            \   '-synctex=1',
+            \   '-interaction=nonstopmode',
+            \   '-pdf',
+            \ ],
+            \ }
+
+'''
+#
+#
+#
+
+#
+#theme
+#
+[[plugins]]
+repo = 'nordtheme/vim'
+hook_add = '''
+
+hi LineNr ctermfg=LightBlue
+hi Comment ctermfg=DarkGreen
+hi Visual ctermbg=DarkGray
+colorscheme nord
+
+'''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts = 1
+let g:airline_section_x=''
+
+'''
+#
+#
+#
