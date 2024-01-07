@@ -1,21 +1,4 @@
 #
-#dart
-#
-[[plugins]]
-repo = 'dart-lang/dart-vim-plugin'
-
-hook_add = '''
-
-let g:dart_html_in_string = v:true
-let g:dart_style_guide = 4
-let g:dart_format_on_save = v:true
-
-'''
-#
-#
-#
-
-#
 #C++
 #
 [[plugins]]
@@ -64,15 +47,6 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_x=''
 
 '''
-#
-#
-#
-
-#
-#lua
-#
-[[plugins]]
-repo = 'marcuscf/vim-lua'
 #
 #
 #

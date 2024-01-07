@@ -31,16 +31,7 @@ repo = 'tpope/vim-commentary'
 #
 
 #
-#dart
-#
-[[plugins]]
-repo = 'natebosch/vim-lsc-dart'
-#
-#
-#
-
-#
-#c++
+#C++
 #
 [[plugins]]
 repo = 'xavierd/clang_complete'

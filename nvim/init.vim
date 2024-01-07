@@ -1,3 +1,3 @@
 let $CONFIG = "./config.vim"
 
-source $CONFIG
+"source $CONFIG
