@@ -1,6 +1,8 @@
-#
+#Java
+[[plugins]]
+repo = 'uiiaoo/java-syntax.vim'
+
 #C++
-#
 [[plugins]]
 repo = 'bfrg/vim-cpp-modern'
 hook_add = '''
@@ -14,13 +16,8 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 
 '''
-#
-#
-#
 
-#
 #theme
-#
 [[plugins]]
 repo = 'nordtheme/vim'
 hook_add = '''
@@ -47,13 +44,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_x=''
 
 '''
-#
-#
-#
 
-#
 #python
-#
 [[plugins]]
 repo = 'vim-python/python-syntax'
 hook_add = '''
@@ -64,6 +56,3 @@ let g:python_highlight_all = 1
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
-#
-#
-#

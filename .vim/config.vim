@@ -11,7 +11,7 @@ set encoding=UTF-8
 "
 set sw=4 ts=4
 
-set autoindent
+set ai
 
 set cindent
 "
@@ -21,9 +21,9 @@ set cindent
 "
 "
 "
-set number
+set nu
 
-set omnifunc=true
+set ofu=true
 
 filetype indent plugin on
 
@@ -31,7 +31,6 @@ syntax enable
 hi LineNr ctermfg=LightBlue
 hi Comment ctermfg=DarkGreen
 hi Visual ctermbg=DarkGray
-
 "
 "
 "
