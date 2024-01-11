@@ -1,19 +1,9 @@
-#Java
+#
 [[plugins]]
-repo = 'uiiaoo/java-syntax.vim'
-
-#C++
-[[plugins]]
-repo = 'bfrg/vim-cpp-modern'
+repo = 'vim-autoformat/vim-autoformat'
 hook_add = '''
 
-let g:cpp_attributes_highlight = 1
-let g:cpp_member_highlight = 1
-let g:cpp_simple_highlight = 1
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_posix_standard = 1
+noremap <F2> :Autoformat<CR>
 
 '''
 
@@ -22,10 +12,10 @@ let g:cpp_posix_standard = 1
 repo = 'nordtheme/vim'
 hook_add = '''
 
+colorscheme nord
 hi LineNr ctermfg=LightBlue
 hi Comment ctermfg=DarkGreen
 hi Visual ctermbg=DarkGray
-colorscheme nord
 
 '''
 
@@ -37,22 +27,8 @@ repo = 'vim-airline/vim-airline'
 hook_add = '''
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
 let g:airline_section_x=''
+let g:airline_section_z=''
 
 '''
-
-#python
-[[plugins]]
-repo = 'vim-python/python-syntax'
-hook_add = '''
-
-let g:python_highlight_all = 1
-
-'''
-
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
