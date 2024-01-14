@@ -26,7 +26,7 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 
 '''
-on_ft = ['cpp']
+on_ft = ['c', 'cpp']
 
 [[plugins]]
 repo = 'xavierd/clang_complete'
