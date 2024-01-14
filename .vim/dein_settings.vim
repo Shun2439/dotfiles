@@ -31,8 +31,6 @@ call dein#load_toml($DEIN_TOML, {'lazy' : 0})
 
 call dein#load_toml($DEIN_LAZY_TOML, {'lazy' : 1})
 
-call dein#toml#syntax()
-
 call dein#end()
 
 call dein#save_state()

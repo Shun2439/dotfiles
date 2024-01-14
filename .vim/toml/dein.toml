@@ -13,9 +13,6 @@ repo = 'nordtheme/vim'
 hook_add = '''
 
 colorscheme nord
-hi LineNr ctermfg=LightBlue
-hi Comment ctermfg=DarkGreen
-hi Visual ctermbg=DarkGray
 
 '''
 

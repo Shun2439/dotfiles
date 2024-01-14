@@ -1,7 +1,7 @@
-let $CONFIG='~/.vim/config.vim'
-let $PLUGINS='~/.vim/plugins.vim'
 let $KEYMAPS='~/.vim/keymaps.vim'
+let $PLUGINS='~/.vim/plugins.vim'
+let $CONFIG='~/.vim/config.vim'
 
-source $PLUGINS
 source $KEYMAPS
+source $PLUGINS
 source $CONFIG

@@ -15,7 +15,15 @@ set ofu=true
 
 filetype indent plugin on
 
-syntax enable
+syntax on
+
+hi LineNr ctermfg=LightBlue
+hi Comment ctermfg=DarkGreen
+hi Visual ctermbg=DarkGray
+
+if &filetype == 'toml'
+	call dein#toml#syntax()
+endif
 
 "netrw
 "tree形式
