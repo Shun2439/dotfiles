@@ -27,6 +27,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_section_a=''
 let g:airline_section_x=''
-let g:airline_section_z=''
+"let g:airline_section_z=''
 
 '''

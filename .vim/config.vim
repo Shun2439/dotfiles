@@ -9,7 +9,7 @@ set ai
 set cindent
 
 "
-set nu
+"set nu
 
 set ofu=true
 

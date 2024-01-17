@@ -3,5 +3,5 @@ let $PLUGINS='~/.vim/plugins.vim'
 let $CONFIG='~/.vim/config.vim'
 
 source $KEYMAPS
-source $PLUGINS
+"source $PLUGINS
 source $CONFIG
