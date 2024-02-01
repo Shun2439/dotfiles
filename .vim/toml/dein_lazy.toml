@@ -1,4 +1,4 @@
-#Java
+# Java
 [[plugins]]
 repo = 'uiiaoo/java-syntax.vim'
 on_ft = ['java']
@@ -12,7 +12,7 @@ au FileType java setlocal omnifunc=javacomplete#Complete
 '''
 on_ft = ['java']
 
-#C++
+# C++
 [[plugins]]
 repo = 'bfrg/vim-cpp-modern'
 hook_add = '''
