@@ -7,6 +7,15 @@ noremap <F2> :Autoformat<CR>
 
 '''
 
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'lambdalisue/kensaku.vim'
+
+[[plugins]]
+repo = 'lambdalisue/kensaku-search.vim'
+
 #theme
 [[plugins]]
 repo = 'nordtheme/vim'
