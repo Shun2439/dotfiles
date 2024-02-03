@@ -1,4 +1,3 @@
-" main(?)
 set encoding=UTF-8
 
 " indent
@@ -10,22 +9,11 @@ set cindent
 
 set nu
 
-set ofu=true
-
 filetype indent plugin on
 
 syntax on
 
-hi LineNr ctermfg=LightBlue
-hi Comment ctermfg=DarkGreen
-hi Visual ctermbg=DarkGray
-
-if &filetype == 'toml'
-	call dein#toml#syntax()
-endif
-
 " spell check
-
 set spelllang=en,cjk
 
 fun! s:SpellConf()

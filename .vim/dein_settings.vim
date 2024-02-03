@@ -38,3 +38,7 @@ call dein#save_state()
 if dein#check_install()
 	call dein#install()
 endif
+
+if &filetype == 'toml'
+	call dein#toml#syntax()
+endif

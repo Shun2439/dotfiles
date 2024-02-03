@@ -15,27 +15,3 @@ repo = 'lambdalisue/kensaku.vim'
 
 [[plugins]]
 repo = 'lambdalisue/kensaku-search.vim'
-
-#theme
-[[plugins]]
-repo = 'nordtheme/vim'
-hook_add = '''
-
-colorscheme nord
-
-'''
-
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-hook_add = '''
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_section_a=''
-let g:airline_section_x=''
-"let g:airline_section_z=''
-
-'''
