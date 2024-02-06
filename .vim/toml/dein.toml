@@ -1,4 +1,3 @@
-#
 [[plugins]]
 repo = 'vim-autoformat/vim-autoformat'
 hook_add = '''
@@ -6,12 +5,3 @@ hook_add = '''
 noremap <F2> :Autoformat<CR>
 
 '''
-
-[[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
-repo = 'lambdalisue/kensaku.vim'
-
-[[plugins]]
-repo = 'lambdalisue/kensaku-search.vim'

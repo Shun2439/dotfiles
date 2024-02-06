@@ -1,54 +1,4 @@
-# Java
-[[plugins]]
-repo = 'uiiaoo/java-syntax.vim'
-on_ft = ['java']
-
-[[plugins]]
-repo = 'artur-shaik/vim-javacomplete2'
-hook_add = '''
-
-au FileType java setlocal omnifunc=javacomplete#Complete
-
-'''
-on_ft = ['java']
-
-# C++
-[[plugins]]
-repo = 'bfrg/vim-cpp-modern'
-hook_add = '''
-
-let g:cpp_attributes_highlight = 1
-let g:cpp_member_highlight = 1
-let g:cpp_simple_highlight = 1
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_posix_standard = 1
-
-'''
-on_ft = ['c', 'cpp']
-
-[[plugins]]
-repo = 'xavierd/clang_complete'
-hook_add = '''
-
-let g:clang_library_path='/usr/lib/llvm-14/lib/libclang-14.so.1'
-
-'''
-on_ft = ['cpp']
-
-#[[plugins]]
-#repo = 'rhysd/vim-clang-format'
-#hook_add = '''
-#
-#au FileType c ClangFormatAutoEnable
-#
-#let g:clang_format#style_options = {
-#	\"BasedOnStyle" : "WebKit"}
-#
-#	'''
-
-#python
+# python
 [[plugins]]
 repo = 'vim-python/python-syntax'
 hook_add = '''
@@ -62,7 +12,7 @@ on_ft = ['py', 'python']
 repo = 'davidhalter/jedi-vim'
 on_ft = ['py', 'python']
 
-#TS
+# TS
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = ['ts', 'tsx', 'jsx']
@@ -76,8 +26,7 @@ au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 '''
 on_ft = ['ts', 'tsx', 'jsx']
 
-#Dart and Flutter
-
+# Dart and Flutter
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
 hook_add = '''
