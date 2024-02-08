@@ -5,3 +5,7 @@ hook_add = '''
 noremap <F2> :Autoformat<CR>
 
 '''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim/'
+rev = "release"
