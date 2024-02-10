@@ -1,0 +1,40 @@
+working_directory = "C:\\Users\\shunt\\"
+
+[shell]
+
+program = "wsl"
+
+[window]
+
+decorations = "None"
+
+opacity = 0.85
+
+startup_mode = "Maximized"
+
+[font]
+
+normal = {family = "Hack NF", style = "Regular"}
+
+[selection]
+
+save_to_clipboard = true
+
+[keyboard]
+
+bindings = [
+
+# New Window
+{key = "N",mods = "Control|Shift", action = "CreateNewWindow"},
+
+{key = "PageUp",mods = "Control|Shift", action = "ScrollPageUp"},
+
+{key = "PageDown",mods = "Control|Shift", action = "ScrollPageDown"},
+
+{key = "+",mods = "Control|Shift", action = "IncreaseFontSize"},
+
+{key = "=",mods = "Control|Shift", action = "DecreaseFontSize"},
+
+{key = "R",mods = "Control|Shift", action = "ResetFontSize"},
+
+]
