@@ -4,11 +4,9 @@ local config = {
 	-- windowの枠を消す
 	window_decorations = "RESIZE",
 
-	window_background_opacity = 0.7,
+	window_background_opacity = 0.8,
 
 	hide_tab_bar_if_only_one_tab = true,
-
-  -- color_scheme = 'nord',
 
 	-- 使うフォントを指定する
 	font = wezterm.font 'Hack NF',
