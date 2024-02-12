@@ -30,3 +30,15 @@ on_ft = ['ts', 'tsx', 'jsx']
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = ['rs']
+
+# C++
+[[plugins]]
+repo = 'bfrg/vim-cpp-modern'
+hook_add = '''
+
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1
+let g:cpp_simple_highlight = 1
+
+'''
+on_ft = ['cpp', 'c', 'hpp', 'h']
