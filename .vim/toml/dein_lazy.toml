@@ -1,3 +1,8 @@
+# Java
+[[plugins]]
+repo = 'uiiaoo/java-syntax.vim'
+on_ft = ['java']
+
 # python
 [[plugins]]
 repo = 'vim-python/python-syntax'
