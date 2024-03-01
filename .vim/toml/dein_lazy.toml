@@ -26,11 +26,6 @@ au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 '''
 on_ft = ['ts', 'tsx', 'jsx']
 
-# Rust
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = ['rs']
-
 # C++
 [[plugins]]
 repo = 'bfrg/vim-cpp-modern'
