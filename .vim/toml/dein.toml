@@ -1,14 +1,18 @@
 [[plugins]]
 repo = 'vim-autoformat/vim-autoformat'
-hook_add = '''
-
-noremap <F2> :Autoformat<CR>
-
-'''
+hook_add = 'noremap <F2> :Autoformat<CR>'
 
 [[plugins]]
-repo = 'neoclide/coc.nvim/'
-rev = "release"
+repo = 'neoclide/coc.nvim'
+rev = 'release'
 
 [[plugins]]
 repo = 'vim-skk/skk.vim'
+
+[[plugins]]
+repo = 'frazrepo/vim-rainbow'
+hook_add = '''
+au FileType c,cpp,objc,objcpp,ts,js call rainbow#load()
+let g:rainbow_active = 1
+'''
+

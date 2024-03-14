@@ -3,8 +3,5 @@ set nu
 set background=dark
 filetype indent plugin on
 
-syntax on
+syntax enable
 
-if &filetype == 'toml'
-	call dein#toml#syntax()
-endif

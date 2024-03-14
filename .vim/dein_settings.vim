@@ -19,7 +19,7 @@ if &runtimepath !~# '/dein.vim'
 endif
 
 "road plugins
-call dein#begin("~/.cache/dein/")
+call dein#begin($CACHE .. '/dein')
 
 call dein#add(s:dir)
 
@@ -31,9 +31,17 @@ call dein#load_toml($DEIN_TOML, {'lazy' : 0})
 
 call dein#load_toml($DEIN_LAZY_TOML, {'lazy' : 1})
 
+"if &filetype == 'toml'
+	call dein#toml#syntax()
+"endif
+
+"let g:dein#auto_recache = v:true
+
 call dein#end()
 
 call dein#save_state()
+
+"call dein#recache_runtimepath()
 
 if dein#check_install()
 	call dein#install()

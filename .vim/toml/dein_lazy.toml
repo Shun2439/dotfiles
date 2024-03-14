@@ -1,4 +1,4 @@
-# Java
+# java
 [[plugins]]
 repo = 'uiiaoo/java-syntax.vim'
 on_ft = ['java']
@@ -6,32 +6,24 @@ on_ft = ['java']
 # python
 [[plugins]]
 repo = 'vim-python/python-syntax'
-hook_add = '''
-
-let g:python_highlight_all = 1
-
-'''
+hook_add = 'let g:python_highlight_all = 1'
 on_ft = ['py', 'python']
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = ['py', 'python']
 
-# TS
+# ts
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = ['ts', 'tsx', 'jsx']
 
 [[plugins]]
 repo = 'peitalin/vim-jsx-typescript'
-hook_add = '''
-
-au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-
-'''
+hook_add = 'au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact'
 on_ft = ['ts', 'tsx', 'jsx']
 
-# C++
+# c++
 [[plugins]]
 repo = 'bfrg/vim-cpp-modern'
 hook_add = '''
@@ -42,3 +34,4 @@ let g:cpp_simple_highlight = 1
 
 '''
 on_ft = ['cpp', 'c', 'hpp', 'h']
+
