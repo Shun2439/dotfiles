@@ -5,3 +5,6 @@ let $BASE='~/.vim/base.vim'
 source $KEYMAPS
 source $PLUGINS
 source $BASE
+
+au FileType toml call dein#toml#syntax()
+

@@ -1,0 +1,7 @@
+[wsl2]
+memory=4GB
+networkingMode=bridged
+vmswitch=External
+dhcp=true
+localhostForwarding=True
+
