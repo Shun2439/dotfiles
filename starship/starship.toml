@@ -1,8 +1,8 @@
 format = '''$shell$os|$all$line_break$character'''
 
 [character]
-success_symbol = "[\\(～￣▽￣\\)～](bold green)"
-error_symbol   = "[ಠಿ_ಠ](bold red)"
+success_symbol = "[\\(￣▽￣\\)](bold green)"
+error_symbol   = "[ಠಿ_ಠ ](bold red)"
 
 [shell]
 disabled = false
