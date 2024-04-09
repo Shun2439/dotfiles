@@ -12,6 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{'nvim-treesitter/nvim-treesitter', cmd = "TSUpdate"}
+	{"neoclide/coc.nvim", branch = 'release' }
 	})
 
