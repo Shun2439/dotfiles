@@ -2,7 +2,7 @@ format = '''$shell$os|$all$line_break$character'''
 
 [character]
 success_symbol = "[\\(￣▽￣\\)](bold green)"
-error_symbol   = "[ಠಿ_ಠ ](bold red)"
+error_symbol   = "[\\(￣へ￣\\)](bold red)"
 
 [shell]
 disabled = false
