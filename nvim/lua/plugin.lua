@@ -13,7 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{
-		"neoclide/coc.nvim", branch = 'release'
+		"neoclide/coc.nvim",
+		branch = 'release',
 	},
 	{
 		'akinsho/flutter-tools.nvim',
@@ -23,6 +24,6 @@ require("lazy").setup({
 			'stevearc/dressing.nvim', -- optional for vim.ui.select
 		},
 		config = true,
-	}
+	},
 })
 
