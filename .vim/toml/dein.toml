@@ -9,10 +9,3 @@ rev = 'release'
 [[plugins]]
 repo = 'vim-skk/skk.vim'
 
-# [[plugins]]
-# repo = 'frazrepo/vim-rainbow'
-# hook_add = '''
-# au FileType c,cpp,objc,objcpp,ts,js call rainbow#load()
-# let g:rainbow_active = 1
-# '''
-
