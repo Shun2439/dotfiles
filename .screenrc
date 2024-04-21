@@ -8,3 +8,8 @@ hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u
 termcapinfo xterm* ti@:te@
 
 startup_message off
+
+termcapinfo xterm* ti@:te@
+
+altscreen on
+
