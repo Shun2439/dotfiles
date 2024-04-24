@@ -13,7 +13,7 @@ local config = {
 
 	-- weztermの起動時に呼び出すシェルを指定する
 	-- default_prog = {'C:\\Program Files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_3.0.9.0_x64__8wekyb3d8bbwe\\wsl.exe'},
-	default_prog = {'C:\\soft\\PowerShell\\7\\pwsh.exe', '-l'}, 
+	default_prog = {'C:\\Program Files\\PowerShell\\7\\pwsh.exe'}, 
 	-- keys = {
 	-- 	{
 	-- 		key = '1',
