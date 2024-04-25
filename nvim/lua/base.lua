@@ -1,10 +1,10 @@
-vim.opt.clipboard="unnamedplus"
+vim.o.fencs=utf8,cp932
 
-vim.opt.number=true
+vim.o.clipboard="unnamedplus"
 
--- vim.opt.fileencodings=utf-8,cp932
--- vim.opt.expandtab
+vim.o.number=true
 
-vim.opt.sw=4
-vim.opt.ts=4
+vim.o.expandtab=true
+vim.o.sw=2
+vim.o.ts=2
 
