@@ -1,12 +1,17 @@
-local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
+local opts = {
+    noremap = true,
+    silent = true
+}
+local term_opts = {
+    silent = true
+}
 local keymap = vim.api.nvim_set_keymap
 
 -----------------
 -- normal mode --
 -----------------
 
---バッファの切替
+-- バッファの切替
 keymap("n", "<C-j>", ":bprev<CR>", opts)
 keymap("n", "<C-k>", ":bnext<CR>", opts)
 
@@ -19,3 +24,4 @@ keymap("n", "<Esc><Esc>", ":<C-u>set nohlsearch!<CR>", opts)
 
 -- escape insert mode 
 keymap("t", "<Esc>", "<C-\\><C-n>", term_opts);
+
