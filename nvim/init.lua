@@ -4,5 +4,5 @@ require("autocmds")
 require("plugin")
 
 if vim.g.neovide then
-  require("neovide")
+    require("neovide")
 end

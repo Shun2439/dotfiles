@@ -1,8 +1,9 @@
--- vim.o.guifont = "Moralerspace Radon HWNF:h14" -- text below applies for VimScript
+-- vim.o.guifont = "Moralerspace Radon HWNF" -- text below applies for VimScript
+vim.o.guifont = "Hack NF:h12" -- text below applies for VimScript
 
 -- Helper function for transparency formatting
 local alpha = function()
-  return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
+    return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
 end
 -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
 vim.g.neovide_transparency = 0.8
