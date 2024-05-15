@@ -1,4 +1,4 @@
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(global-display-line-numbers-mode 1)
 
 (require 'package)
 ;; MELPAを追加
@@ -26,3 +26,10 @@
 
 ;; color theme
 (load-theme 'atom-one-dark t)
+
+(require 'skk-autoloads)
+(global-set-key "\C-x\C-j" 'skk-mode)
+(global-set-key "\C-xj" 'skk-auto-fill-mode)
+(global-set-key "\C-xt" 'skk-tutorial)
+
+(setq skk-large-jisyo "/home/shun/SKK-JISYO.L")
