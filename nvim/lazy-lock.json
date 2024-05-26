@@ -3,7 +3,11 @@
   "denops.vim": { "branch": "main", "commit": "c727a3f05a804d1f04b11735f8241518465de9a7" },
   "dressing.nvim": { "branch": "master", "commit": "18e5beb3845f085b6a33c24112b37988f3f93c06" },
   "flutter-tools.nvim": { "branch": "main", "commit": "4f18033c3b78aa5450e538d81dfbbb3e67aeadec" },
+  "jumpcursor.vim": { "branch": "main", "commit": "29669e27c0cbe65da8497c91585504bef846e255" },
   "lazy.nvim": { "branch": "main", "commit": "31ddbea7c10b6920c9077b66c97951ca8682d5c8" },
+  "nightfox.nvim": { "branch": "main", "commit": "df75a6a94910ae47854341d6b5a6fd483192c0eb" },
   "plenary.nvim": { "branch": "master", "commit": "8aad4396840be7fc42896e3011751b7609ca4119" },
-  "skkeleton": { "branch": "main", "commit": "438b9d22d926569db6e6034e0d333edce5f4d4cf" }
+  "skkeleton": { "branch": "main", "commit": "438b9d22d926569db6e6034e0d333edce5f4d4cf" },
+  "skkeleton_indicator.nvim": { "branch": "main", "commit": "22d0986a871d9c02f4df5ed4ae1a9fbddce33057" },
+  "vim-maketable": { "branch": "master", "commit": "d72e73f333c64110524197ec637897bd1464830f" }
 }

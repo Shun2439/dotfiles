@@ -52,7 +52,9 @@ require("lazy").setup({{
 }, {
     "EdenEast/nightfox.nvim",
     config = function()
-        vim.cmd("colorscheme terafox")
+        vim.cmd("colorscheme nightfox")
     end
+}, {
+    "mattn/vim-maketable",
 }})
 
