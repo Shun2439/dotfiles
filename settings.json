@@ -48,14 +48,14 @@
         {
             "adjustIndistinguishableColors": "never",
             "bellStyle": "none",
-            "colorScheme": "Campbell",
+            "colorScheme": "One Half Dark",
             "cursorShape": "filledBox",
             "experimental.retroTerminalEffect": false,
             "font": 
             {
-                "face": "Moralerspace Radon HWNF"
+                "face": "Hack NF"
             },
-            "opacity": 85,
+            "opacity": 100,
             "scrollbarState": "hidden",
             "startingDirectory": "%USERPROFILE%",
             "useAcrylic": false
@@ -105,10 +105,10 @@
                 "source": "VSDebugConsole"
             },
             {
-                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "commandline": "C:\\soft\\PowerShell\\7\\pwsh.exe",
+                "guid": "{97bd8a64-468d-42b8-aa79-94ec1b9ed7f1}",
                 "hidden": false,
-                "name": "PowerShell",
-                "source": "Windows.Terminal.PowershellCore"
+                "name": "pwsh"
             }
         ]
     },
