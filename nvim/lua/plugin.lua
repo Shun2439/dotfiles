@@ -56,5 +56,8 @@ require("lazy").setup({{
     end
 }, {
     "mattn/vim-maketable",
+}, {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate"
 }})
 
