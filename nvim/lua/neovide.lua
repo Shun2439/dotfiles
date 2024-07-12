@@ -1,5 +1,4 @@
--- vim.o.guifont = "Moralerspace Radon HWNF" -- text below applies for VimScript
-vim.o.guifont = "Hack NF:h12" -- text below applies for VimScript
+vim.o.guifont="Moralerspace Radon HWNF:h14" -- text below applies for VimScript
 
 -- Helper function for transparency formatting
 local alpha = function()
