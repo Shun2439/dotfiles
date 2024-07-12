@@ -1,13 +1,16 @@
-vim.opt.fileencodings = {"utf-8", "cp932"}
+local options = {
+  fileencodings = {"utf-8", "cp932"},
+  clipboard = "unnamedplus",
+  number = true,
+  expandtab = true,
+  sw = 2,
+  ts = 2,
+  smartindent = true,
+}
 
-vim.o.clipboard = "unnamedplus"
-
-vim.o.number = true
-
-vim.o.expandtab = true
-vim.o.sw = 2
-vim.o.ts = 2
-vim.o.smartindent = true
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
 
 -- ファイルツリーの表示形式、1にするとls -laのような表示になります
 vim.g.netrw_liststyle=3
