@@ -1,15 +1,23 @@
-term screen-256color
-# term xterm-256color
+#温かな歓迎を遠慮する
+startup_message off
 
+#term screen-256color
+#term xterm-256color
+#term rxvt-unicode-256color
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# Enables use of shift-PgUp and shift-PgDn
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
+
+defbce "on"
+
+#いいかんじのステータスバー
 hardstatus off
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
 
+#スクロールができるようにする
 termcapinfo xterm* ti@:te@
 
-startup_message off
-
-termcapinfo xterm* ti@:te@
-
+#エディターを閉じたときの挙動を変える
 altscreen on
-
