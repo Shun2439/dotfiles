@@ -22,7 +22,7 @@ local config = {
     -- windowの枠を消す
     window_decorations = "RESIZE",
 
-    window_background_opacity = 0.8,
+    -- window_background_opacity = 0.8,
 
     hide_tab_bar_if_only_one_tab = true,
 
