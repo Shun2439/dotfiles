@@ -15,3 +15,10 @@ repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
 
+[[plugins]]
+repo = 'sainnhe/everforest'
+hook_add = '''
+colorscheme everforest
+let g:airline_theme = 'everforest'
+'''
+

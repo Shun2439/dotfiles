@@ -10,8 +10,8 @@ let g:isVisualStudioProject = 0
 let g:normalEdit = 1
 
 if normalEdit
-	set shiftwidth=2
-	set tabstop=2
+	set shiftwidth=4
+	set tabstop=4
 endif
 
 if isVisualStudioProject
