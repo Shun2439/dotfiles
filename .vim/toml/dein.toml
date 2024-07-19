@@ -20,5 +20,6 @@ repo = 'sainnhe/everforest'
 hook_add = '''
 colorscheme everforest
 let g:airline_theme = 'everforest'
+let g:airline#extensions#tabline#enabled = 1
 '''
 
