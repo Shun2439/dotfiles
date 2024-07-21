@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+ln -sf $HOME/Documents/dotfiles/.vimrc $HOME/.vimrc
+ln -sf $HOME/Documents/dotfiles/.vim $HOME/.vim
+curl --output-dir $HOME -O http://openlab.jp/skk/dic/SKK-JISYO.L.gz
+gzip -d $HOME/SKK-JISYO.L.gz -c > $HOME/SKK-JISYO.L
