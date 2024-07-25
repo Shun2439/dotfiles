@@ -41,13 +41,11 @@ require("lazy").setup({{
     end
 }, {
     "delphinus/skkeleton_indicator.nvim",
-    config = function()
-        vim.keymap.set("n", "[j", "<Plug>(jumpcursor-jump)")
-    end
+    opts = {}
 }, {
     "skanehira/jumpcursor.vim",
     config = function()
-        require('skkeleton_indicator').setup {}
+        vim.keymap.set("n", "[j", "<Plug>(jumpcursor-jump)")
     end
 }, {
     "EdenEast/nightfox.nvim",
@@ -59,5 +57,7 @@ require("lazy").setup({{
 }, {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate"
+}, {
+  "vim-airline/vim-airline",
 }})
 

@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
+# まだ、メモ程度
+
 ln -sf $HOME/Documents/dotfiles/.vimrc $HOME/.vimrc
 ln -sf $HOME/Documents/dotfiles/.vim $HOME/.vim
+
+ln -sf $HOME/Documents/dotfiles/nvim $HOME/.config/nvim
+
 curl --output-dir $HOME -O http://openlab.jp/skk/dic/SKK-JISYO.L.gz
 gzip -d $HOME/SKK-JISYO.L.gz -c > $HOME/SKK-JISYO.L
+ln -sf $HOME/SKK-JISYO.L $HOME/.local/share/nvim/SKK-JISYO.L
+
+ln -sf $HOME/Documents/dotfiles/tmux/.tmux.conf $HOME/.tmux.conf
+

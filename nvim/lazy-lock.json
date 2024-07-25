@@ -4,11 +4,12 @@
   "dressing.nvim": { "branch": "master", "commit": "5162edb1442a729a885c45455a07e9a89058be2f" },
   "flutter-tools.nvim": { "branch": "main", "commit": "f04131d6b2c82c2a7624a8843642d6269b50b437" },
   "jumpcursor.vim": { "branch": "main", "commit": "29669e27c0cbe65da8497c91585504bef846e255" },
-  "lazy.nvim": { "branch": "main", "commit": "69041bccb70f68408633e93ed33012ee18889bb0" },
+  "lazy.nvim": { "branch": "main", "commit": "4496b4cad69a862199bb3ad452d3c4988bb925a1" },
   "nightfox.nvim": { "branch": "main", "commit": "df75a6a94910ae47854341d6b5a6fd483192c0eb" },
   "nvim-treesitter": { "branch": "master", "commit": "465840f8c14126e5193d777bbff94036eb875bd5" },
   "plenary.nvim": { "branch": "master", "commit": "08e301982b9a057110ede7a735dd1b5285eb341f" },
   "skkeleton": { "branch": "main", "commit": "438b9d22d926569db6e6034e0d333edce5f4d4cf" },
   "skkeleton_indicator.nvim": { "branch": "v2", "commit": "22d0986a871d9c02f4df5ed4ae1a9fbddce33057" },
+  "vim-airline": { "branch": "master", "commit": "d25c049e617775eb2eb26c580e5dec591c94d480" },
   "vim-maketable": { "branch": "master", "commit": "d72e73f333c64110524197ec637897bd1464830f" }
 }
