@@ -57,10 +57,19 @@ require("lazy").setup({{
 }, {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate"
-}, {
-  "vim-airline/vim-airline",
+},
+-- {
+--   "vim-airline/vim-airline",
+--   config = function()
+--     vim.g['airline#extensions#tabline#enabled']=1
+--   end
+-- }
+{
+  "nvim-lualine/lualine.nvim",
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    vim.g['airline#extensions#tabline#enabled']=1
+    require('lualine').setup()
   end
-}})
+},
+})
 
