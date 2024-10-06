@@ -12,6 +12,7 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+-- <https://qiita.com/gorilla0513/items/bf2f78dfec67242f5bcf>
 -- ファイルツリーの表示形式、1にするとls -laのような表示になります
 vim.g.netrw_liststyle=3
 -- ヘッダを非表示にする
