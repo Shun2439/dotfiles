@@ -2,41 +2,46 @@
 
 # まだ、メモ程度
 
-if [ -x "tmux" ] || [ -x "curl" ] || [ -x "node" ] || [ -x "npm" ] || [ -x "git" ]; then
+# if [ -x "tmux" ] || [ -x "curl" ] || [ -x "node" ] || [ -x "npm" ] || [ -x "git" ]; then
   apt update
-  apt install -y tmux curl nodejs npm git
-fi
+  apt install -y tmux curl nodejs npm unzip
+# fi
 
-if [ ! -f "${HOME}/SKK-JISYO.L" ]; then
+# if [ ! -f "${HOME}/SKK-JISYO.L" ]; then
   curl --output-dir $HOME -O http://openlab.jp/skk/dic/SKK-JISYO.L.gz
   gzip -d $HOME/SKK-JISYO.L.gz -c > $HOME/SKK-JISYO.L
   ln -sf $HOME/SKK-JISYO.L $HOME/.local/share/nvim/SKK-JISYO.L
   rm ~/SKK-JISYO.L.gz
   echo "SKK setup finished"
-else
-  echo "SKK setup already finished"
-fi
+# else
+  # echo "SKK setup already finished"
+# fi
 
-if [ ! -h "${HOME}/.vim" ]; then # `-h` -> symbolic link <https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html>
+# if [ ! -h "${HOME}/.vim" ]; then # `-h` -> symbolic link <https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html>
   ln -sf ${PWD}/../.vimrc $HOME/.vimrc
   ln -sf ${PWD}/../.vim $HOME/.vim
   echo "Vim setup finished"
-else
-  echo "Vim setup already finished"
-fi
+# else
+  # echo "Vim setup already finished"
+# fi
 
-if [ ! -h "${HOME}/.config/nvim" ]; then
-	mkdir -p ~/.config/nvim
+# if [ ! -h "${HOME}/.config/nvim" ]; then
+	mkdir ~/.config
   ln -sf ${PWD}/../nvim $HOME/.config/nvim
   echo "neovim setup finished"
-else
-  echo "neovim setup already finished"
-fi
+# else
+  # echo "neovim setup already finished"
+# fi
 
-if [ ! -h "${HOME}/.tmux.conf" ]; then
+# if [ ! -h "${HOME}/.tmux.conf" ]; then
   ln -sf ${PWD}/../tmux/.tmux.conf $HOME/.tmux.conf
   echo "tmux setup finished"
-else
-  echo "tmux setup already finished"
-fi
+# else
+  # echo "tmux setup already finished"
+# fi
+
+# git
+
+echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
+source ~/.bashrc
 
