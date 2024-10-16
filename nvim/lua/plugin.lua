@@ -69,6 +69,7 @@ require("lazy").setup({
   {
     "EdenEast/nightfox.nvim",
     lazy = false,
+    enabled = false,
     config = function()
       vim.cmd([[colorscheme nightfox]])
     end
@@ -107,6 +108,13 @@ require("lazy").setup({
     opts = {
       options = { theme = 'auto' },
     },
+  },
+
+  {
+    "nordtheme/vim",
+    config = function()
+      vim.cmd([[colorscheme nord]])
+    end
   },
 
   -- {
