@@ -32,8 +32,10 @@ wezterm.on('toggle-colorscheme', function(window, pane)
     local overrides = window:get_config_overrides() or {}
     if not overrides.color_scheme then
         overrides.color_scheme = 'Default (dark) (terminal.sexy)'
+        overrides.window_background_opacity = 1.0
     else
         overrides.color_scheme = nil
+        overrides.window_background_opacity = 0.8
     end
     window:set_config_overrides(overrides)
 end)
@@ -45,6 +47,8 @@ local config = {
     hide_tab_bar_if_only_one_tab = true,
 
     color_scheme = 'Nord (base16)',
+
+    window_background_opacity = 0.5,
 
     -- 使うフォントを指定する
     font = wezterm.font 'Moralerspace Radon HWNF',
