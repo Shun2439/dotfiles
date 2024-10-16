@@ -27,13 +27,28 @@ wezterm.on('SpawnNewTabOnWsl', function(window, pane)
     }, pane)
 end)
 
+-- <https://github.com/wez/wezterm/issues/4429#issuecomment-1774827062>
+wezterm.on('toggle-colorscheme', function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    if not overrides.color_scheme then
+        overrides.color_scheme = 'Default (dark) (terminal.sexy)'
+        overrides.window_background_opacity = 1.0
+    else
+        overrides.color_scheme = nil
+        overrides.window_background_opacity = 0.8
+    end
+    window:set_config_overrides(overrides)
+end)
+
 local config = {
     -- windowの枠を消す
     window_decorations = "RESIZE",
 
-    -- window_background_opacity = 0.8,
-
     hide_tab_bar_if_only_one_tab = true,
+
+    color_scheme = 'Nord (base16)',
+
+    window_background_opacity = 0.5,
 
     -- 使うフォントを指定する
     font = wezterm.font 'Moralerspace Radon HWNF',
@@ -58,6 +73,12 @@ local config = {
         mods = 'CTRL|SHIFT',
         action = wezterm.action({
             EmitEvent = "SpawnNewTabOnWsl"
+        })
+    }, {
+        key = 't',
+        mods = 'CTRL|ALT',
+        action = wezterm.action({
+            EmitEvent = "toggle-colorscheme"
         })
     }}
 }
