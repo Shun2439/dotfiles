@@ -114,6 +114,11 @@ require("lazy").setup({
     "nordtheme/vim",
     config = function()
       vim.cmd([[colorscheme nord]])
+
+      vim.cmd([[hi CocInlayHint ctermbg=8]])
+      vim.cmd([[hi Visual ctermbg=Gray]])
+      vim.cmd([[hi Comment ctermfg=Yellow]])
+      vim.cmd([[hi LineNr ctermfg=6]])
     end
   },
 
