@@ -42,6 +42,8 @@
 
 # git
 
-echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
-source ~/.bashrc
+# echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
+# source ~/.bashrc
+
+echo "Then, install deno \`curl -fsSL https://deno.land/install.sh | sh\`"
 
