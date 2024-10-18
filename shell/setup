@@ -35,6 +35,7 @@
 
 # if [ ! -h "${HOME}/.tmux.conf" ]; then
   ln -sf ${PWD}/../tmux/.tmux.conf $HOME/.tmux.conf
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   echo "tmux setup finished"
 # else
   # echo "tmux setup already finished"
