@@ -14,5 +14,6 @@
 	source ~/.bashrc
 # else
 	echo "neovim installed"
+	echo "You need to source configurations"
 # fi
 

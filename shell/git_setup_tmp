@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
+
+gpg --import $HOME/gpg-pub.asc
+gpg --import $HOME/gpg-sc.asc
+
+git config --global user.email shunta.kobayashi24@gmail.com
+git config --global user.name Shun2439
+# git config --global user.signingkey <>
+
+echo "Source your configuration"
+
