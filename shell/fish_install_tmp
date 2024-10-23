@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+apt update
+apt install -y software-properties-common
+apt-add-repository ppa:fish-shell/release-3
+apt update
+apt install -y fish
+
+chsh -s /usr/bin/fish
+
