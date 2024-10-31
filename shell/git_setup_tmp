@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
+# echo 'export GPG_TTY=$(tty)' >> ~/.config/fish/config.fish
 
 gpg --import $HOME/gpg-pub.asc
 gpg --import $HOME/gpg-sc.asc

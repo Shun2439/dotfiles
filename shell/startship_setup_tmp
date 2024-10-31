@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "starship init fish | source" >> ~/.config/fish/config.fish
+
+echo \`source ~/.config/fish/config.fish\`
+
+ln -s ../starship/starship.toml ~/.config/
+

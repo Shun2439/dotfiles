@@ -2,9 +2,13 @@
 
 apt update
 apt install -y software-properties-common
-apt-add-repository ppa:fish-shell/release-3
+apt-add-repository ppa:fish-shell/release-3 # register repository
+
 apt update
 apt install -y fish
 
-chsh -s /usr/bin/fish
+chsh -s /usr/bin/fish # change defult shell to fish
+
+# <https://starship.rs/guide/>
+echo "Then, isntall starship. \`curl -sS https://starship.rs/install.sh | sh\`"
 

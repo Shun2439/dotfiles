@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if [ "$(which cargo)" = ""]; then
+  echo Please install cargo first. <curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh>
+fi
+
+# <https://github.com/eza-community/eza/blob/main/INSTALL.md>
+if [ "$(which eza)" = "" ]; then
+  cargo install eza
+  export alias ls="eza" >> ~/.bashrc
+fi
+
+# <https://github.com/io12/pwninit?tab=readme-ov-file#using-cargo>
+if [ "$(which pwninit)" = "" ]; then
+  # cargo install pwninit
+fi
+

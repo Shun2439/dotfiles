@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+apt update
+apt install -y gdb
+
+# <https://github.com/hugsy/gef?tab=readme-ov-file#instant-setup>
+bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
+
+# ln -s ../gdb/.gdbinit ~/
+
+echo "set disassembly-flavor intel" >> ~/.gdbinit
+
