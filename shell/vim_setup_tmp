@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# `-h`: symbolic link
+if [ ! -h "${HOME}/.vim" ]; then # `-h` -> symbolic link <https://www.gnu.org/software/bash/manual/html_node/Bash-Conditional-Expressions.html>
+  ln -sf ${PWD}/../.vimrc $HOME/.vimrc
+  ln -sf ${PWD}/../.vim $HOME/.vim
+fi
+

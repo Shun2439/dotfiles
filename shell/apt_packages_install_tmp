@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+package_list=(tmux fzf npm)
+
+for command in "${package_list[@]}"; do
+  if ! command -v "$command" &> /dev/null; then
+    # tmux: <https://github.com/tmux/tmux/wiki/Installing>
+    apt install -y "$command"
+  fi
+done
+
