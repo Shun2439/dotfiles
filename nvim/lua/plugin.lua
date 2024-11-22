@@ -116,9 +116,13 @@ require("lazy").setup({
       vim.cmd([[colorscheme nord]])
 
       vim.cmd([[hi CocInlayHint ctermbg=8]])
+      vim.cmd([[hi CocInlayHint guifg=8]])
       vim.cmd([[hi Visual ctermbg=Gray]])
-      vim.cmd([[hi Comment ctermfg=Yellow]])
-      vim.cmd([[hi LineNr ctermfg=6]])
+      vim.cmd([[hi Visual guifg=Gray]])
+      vim.cmd([[hi Comment ctermfg=LightBlue]])
+      vim.cmd([[hi Comment guifg=LightBlue]])
+      vim.cmd([[hi LineNr ctermfg=LightBlue]])
+      vim.cmd([[hi LineNr guifg=LightBlue]])
     end
   },
 
