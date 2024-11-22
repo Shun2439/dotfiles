@@ -113,42 +113,43 @@ require("lazy").setup({
   {
     "nordtheme/vim",
     config = function()
-      vim.cmd([[colorscheme nord]])
+      vim.cmd.colorscheme("nord")
 
-      vim.cmd([[hi CocInlayHint ctermbg=8]])
-      vim.cmd([[hi CocInlayHint guifg=8]])
-      vim.cmd([[hi Visual ctermbg=Gray]])
-      vim.cmd([[hi Visual guifg=Gray]])
-      vim.cmd([[hi Comment ctermfg=LightBlue]])
-      vim.cmd([[hi Comment guifg=LightBlue]])
-      vim.cmd([[hi LineNr ctermfg=LightBlue]])
-      vim.cmd([[hi LineNr guifg=LightBlue]])
+      vim.cmd.highlight({"Visual", "guifg=#d8dee9"})
+      vim.cmd.highlight({"Comment", "guifg=#88c0d0"})
+      vim.cmd.highlight({"LineNr", "guifg=#8fbcbb"})
+      -- java
+      vim.cmd.highlight({"javaConceptKind", "guifg=#81a1c1"})
+      -- Coc
+      vim.cmd.highlight({"CocInlayHint", "guifg=8"})
     end
   },
 
-  -- {
-  --   -- <https://github.com/nvim-java/starter-lazyvim/blob/main/lua/plugins/java/init.lua>
-  --   "nvim-java/nvim-java",
-  --   config = false,
-  --   dependencies = {
-  --     {
-  --       "neovim/nvim-lspconfig",
-  --       opts = {
-  --         servers = {
-  --           jdtls = {
-  --             -- your jdtls configuration goes here
-  --           },
-  --         },
-  --         setup = {
-  --           jdtls = function()
-  --             require("java").setup({
-  --               -- your nvim-java configuration goes here
-  --             })
-  --           end,
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
+  --[[
+  {
+    -- <https://github.com/nvim-java/starter-lazyvim/blob/main/lua/plugins/java/init.lua>
+    "nvim-java/nvim-java",
+    config = false,
+    dependencies = {
+      {
+        "neovim/nvim-lspconfig",
+        opts = {
+          servers = {
+            jdtls = {
+              -- your jdtls configuration goes here
+            },
+          },
+          setup = {
+            jdtls = function()
+              require("java").setup({
+                -- your nvim-java configuration goes here
+              })
+            end,
+          },
+        },
+      },
+    },
+  },
+  ]]
 })
 
