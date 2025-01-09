@@ -2,6 +2,5 @@
 
 curl --output-dir $HOME -O http://openlab.jp/skk/dic/SKK-JISYO.L.gz
 gzip -d $HOME/SKK-JISYO.L.gz -c > $HOME/SKK-JISYO.L
-ln -sf $HOME/SKK-JISYO.L $HOME/.local/share/nvim/SKK-JISYO.L
 rm ~/SKK-JISYO.L.gz
 
