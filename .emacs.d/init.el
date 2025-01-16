@@ -25,11 +25,20 @@
  )
 
 ;; color theme
+;; <https://github.com/jonathanchu/atom-one-dark-theme>
 (load-theme 'atom-one-dark t)
 
+;; <https://gihyo.jp/admin/serial/01/ubuntu-recipe/0175>
 (require 'skk-autoloads)
 (global-set-key "\C-x\C-j" 'skk-mode)
 (global-set-key "\C-xj" 'skk-auto-fill-mode)
 (global-set-key "\C-xt" 'skk-tutorial)
 
-(setq skk-large-jisyo "/home/shun/SKK-JISYO.L")
+;; (setq skk-large-jisyo "C:\Users\%USERPROFILE%\AppData\Local\nvim-data\SKK-JISYO.L)
+(setq skk-large-jisyo "/home/$USER/SKK-JISYO.L")
+
+(setq user-mail-address "shunta.kobayashi24@gmail.com")
+(setq user-full-name "Kobayashi Shunta")
+(setq smtpmail-smtp-server "smtp.gmail.com")
+(setq mail-user-agent 'message-user-agent)
+(setq message-send-mail-function 'message-smtpmail-send-it)
