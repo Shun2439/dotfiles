@@ -25,3 +25,10 @@ colorscheme everforest
 let g:airline_theme = 'everforest'
 '''
 
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = 'nmap gx <Plug>(openbrowser-smart-search)'
+
+[[plugins]]
+repo = 'lambdalisue/vim-fern'
+
