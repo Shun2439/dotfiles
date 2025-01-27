@@ -11,3 +11,5 @@ source "$HOME/.cargo/env.fish"
 
 export GPG_TTY=$(tty)
 
+alias ls='eza'
+
