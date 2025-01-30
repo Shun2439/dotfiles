@@ -1,4 +1,4 @@
-theme = "onedark"
+theme = "gruvbox"
 
 [editor]
 mouse = false
@@ -10,4 +10,8 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[keys.normal]
+C-j = ":buffer-previous"
+C-k = ":buffer-next"
 
