@@ -37,3 +37,5 @@ if not pgrep -f "emacs --daemon" > /dev/null
 end
 
 export LIBRARY_PATH=/home/linuxbrew/.linuxbrew/opt/libgccjit/lib/gcc/15
+
+export EDITOR='emacsclient -r'
