@@ -1,0 +1,107 @@
+[[plugins]]
+repo = 'vim-autoformat/vim-autoformat'
+hook_add = 'noremap <F2> :Autoformat<CR>'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+
+[[plugins]]
+repo = 'vim-skk/skk.vim'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline_theme = 'catppuccin_mocha'
+'''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+# [[plugins]]
+# repo = 'catppuccin/vim'
+# hook_add = '''
+# colorscheme catppuccin_mocha
+# '''
+
+[[plugins]]
+repo = 'nordtheme/vim'
+hook_add = '''
+colorscheme nord
+aug nord-fix
+au!
+au ColorScheme nord hi LineNr ctermfg=14
+au ColorScheme nord hi Comment ctermfg=10
+au ColorScheme nord hi Visual ctermbg=15
+au ColorScheme nord hi CocInlayHint ctermfg=green ctermbg=242 guifg=#15aabf guibg=Grey
+au ColorScheme nord hi CocInlayHint ctermbg=8
+aug END
+'''
+
+# [[plugins]]
+# repo = 'sainnhe/everforest'
+# hook_add = '''
+# colorscheme nord
+# " let g:airline_theme = 'everforest'
+# '''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = 'nmap gx <Plug>(openbrowser-smart-search)'
+
+[[plugins]]
+repo = 'lambdalisue/vim-fern'
+# hook_add = '''
+# nnoremap <C-S-e> :Fern . -drawer<CR>
+# '''
+
+# denops ----- {{{
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'vim-denops/denops-helloworld.vim'
+
+[[plugins]]
+repo = 'vim-denops/denops-startup-recorder.vim'
+
+[[plugins]]
+repo = 'vim-denops/denops-benchmark.vim'
+# }}}
+
+[[plugins]]
+repo = 'myrobo/smart_tabline.vim'
+
+# [[plugins]]
+# repo = 'LeafCage/yankround.vim'
+# hook_add = '''
+# " nmap p <Plug>(yankround-p)
+# " xmap p <Plug>(yankround-p)
+# " nmap P <Plug>(yankround-P)
+# " nmap gp <Plug>(yankround-gp)
+# " xmap gp <Plug>(yankround-gp)
+# " nmap gP <Plug>(yankround-gP)
+# " nmap <C-p> <Plug>(yankround-prev)
+# " nmap <C-n> <Plug>(yankround-next)
+# '''
+
+# https://sy-base.com/myrobotics/vim/vim-tcomment_vim/
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'rhysd/vim-healthcheck'
+
+[[plugins]]
+repo = 'thinca/vim-splash'
+hook_add = '''
+let g:splash#path = $HOME .. '/.vim/vim_intro.txt'
+'''
+
+[[plugins]]
+repo = 'Kuniwak/vim-qrcode'
+hook_source = '''
+silent !gem install rqrcode
+'''
+
