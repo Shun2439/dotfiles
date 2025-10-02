@@ -39,3 +39,5 @@ end
 export LIBRARY_PATH=/home/linuxbrew/.linuxbrew/opt/libgccjit/lib/gcc/15
 
 export EDITOR='emacsclient -r'
+
+set -gx PATH $PATH /usr/local/go/bin
