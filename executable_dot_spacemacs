@@ -37,6 +37,8 @@ This function should only modify configuration layer settings."
      javascript
      shell-scripts
      csv
+     (tree-sitter :variables
+                  tree-sitter-indent-enable t)
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -47,11 +49,23 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      helm
+     (latex :variables latex-backend 'lsp)
      lsp
      ;; markdown
      multiple-cursors
      (org :variables
-          org-enable-reveal-js t)
+          org-enable-reveal-js t
+          org-enable-modern-support t
+          org-enable-appear-support t
+          org-enable-transclusion-support t
+          org-enable-notifications t
+          org-start-notification-daemon-on-startup t
+          org-enable-roam-support t
+          org-enable-roam-ui t
+          org-enable-roam-protocol t
+          org-enable-sticky-header t
+          org-enable-org-journal-support t
+          )
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -69,7 +83,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(ox-reveal ox-pandoc nix-mode nord-theme)
+   dotspacemacs-additional-packages '(ox-reveal ox-pandoc nix-mode nord-theme ox-latex ddskk org-roam-ui)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -236,7 +250,7 @@ It should only modify the values of Spacemacs settings."
    ;; fixed-pitch faces. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Moralerspace Radon HWNF"
+   dotspacemacs-default-font '("Guguru Sans Code Console NF"
                                :size 12.0
                                :weight normal
                                :width normal)
@@ -572,17 +586,27 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (setq alert-default-style 'notifications)
+
+  (setq org-journal-dir "~/org/journal/")
+  (setq org-journal-file-format "%Y-%m-%d")
+
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((prolog . t)))
 
-  (use-package ox-latex
-    :config
-    (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-    (setq org-latex-pdf-process '("latexmk -lualatex %f"))
-    (add-to-list 'org-latex-classes
-                 '("jlreq-article"
-                   "\\ifdefined\\kanjiskip
+  (global-set-key (kbd "C-x C-j") 'skk-mode)
+  (setq skk-jisyo-code 'utf-8)
+
+  ;; (use-package ox-latex
+  ;;   :config
+  (require 'ox-latex)
+  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+  (setq org-latex-default-class "jlreq-article")
+  (setq org-latex-pdf-process '("latexmk -lualatex %f"))
+  (add-to-list 'org-latex-classes
+               '("jlreq-article"
+                 "\\ifdefined\\kanjiskip
   \\documentclass[uplatex,dvipdfmx,11pt,paper=a4]{jlreq}
 \\else
   \\documentclass[11pt,paper=a4]{jlreq}
@@ -601,11 +625,12 @@ before packages are loaded."
   \\usepackage{bm}
   \\hypersetup{pdfencoding=auto,colorlinks=true}
 \\fi"
-                   ("\\section{%s}" . "\\section*{%s}")
-                   ("\\subsection{%s}" . "\\subsection*{%s}")
-                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+  ;; )
 
   (setq ispell-program-name "aspell")
   (setq ispell-extra-args '("--sug-mode=ultra" "--run-together"))
