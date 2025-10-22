@@ -15,7 +15,7 @@ end)
 wezterm.on('SpawnNewTabOnCmd', function(window, pane)
     window:perform_action(wezterm.action {
         SpawnCommandInNewTab = {
-            args = {"cmd.exe"} -- WSLのホームディレクトリを指定
+            args = { "cmd.exe" } -- WSLのホームディレクトリを指定
         }
     }, pane)
 end)
@@ -24,7 +24,7 @@ end)
 wezterm.on('SpawnNewTabOnPwsh', function(window, pane)
     window:perform_action(wezterm.action {
         SpawnCommandInNewTab = {
-            args = {"pwsh.exe"}
+            args = { "pwsh.exe" }
         }
     }, pane)
 end)
@@ -33,7 +33,7 @@ end)
 wezterm.on('SpawnNewTabOnWsl', function(window, pane)
     window:perform_action(wezterm.action {
         SpawnCommandInNewTab = {
-            args = {"wsl.exe"} -- WSLのホームディレクトリを指定
+            args = { "wsl.exe" } -- WSLのホームディレクトリを指定
         }
     }, pane)
 end)
@@ -59,6 +59,7 @@ wezterm.on('toggle-colorscheme', function(window, pane)
 end)
 
 local config = {
+    automatically_reload_config = true,
     -- windowの枠を消す
     window_decorations = "RESIZE",
 
@@ -71,51 +72,51 @@ local config = {
     use_fancy_tab_bar = false,
 
     -- TODO change tab colorscheme
-    colors = {
-        tab_bar = {
-            background = "#1b1f2f",
-            inactive_tab_edge = "none",
+    -- colors = {
+    --     tab_bar = {
+    --         background = "#1b1f2f",
+    --         inactive_tab_edge = "none",
 
-            active_tab = {
-                bg_color = "#444b71",
-                fg_color = "#c6c8d1",
-                intensity = "Normal",
-                underline = "None",
-                italic = false,
-                strikethrough = false
-            },
+    --         active_tab = {
+    --             bg_color = "#444b71",
+    --             fg_color = "#c6c8d1",
+    --             intensity = "Normal",
+    --             underline = "None",
+    --             italic = false,
+    --             strikethrough = false
+    --         },
 
-            inactive_tab = {
-                bg_color = "#282d3e",
-                fg_color = "#c6c8d1",
-                intensity = "Normal",
-                underline = "None",
-                italic = false,
-                strikethrough = false
-            },
+    --         inactive_tab = {
+    --             bg_color = "#282d3e",
+    --             fg_color = "#c6c8d1",
+    --             intensity = "Normal",
+    --             underline = "None",
+    --             italic = false,
+    --             strikethrough = false
+    --         },
 
-            inactive_tab_hover = {
-                bg_color = "#1b1f2f",
-                fg_color = "#c6c8d1",
-                intensity = "Normal",
-                underline = "None",
-                italic = true,
-                strikethrough = false
-            },
+    --         inactive_tab_hover = {
+    --             bg_color = "#1b1f2f",
+    --             fg_color = "#c6c8d1",
+    --             intensity = "Normal",
+    --             underline = "None",
+    --             italic = true,
+    --             strikethrough = false
+    --         },
 
-            new_tab = {
-                bg_color = "#1b1f2f",
-                fg_color = "#c6c8d1",
-                italic = false
-            },
+    --         new_tab = {
+    --             bg_color = "#1b1f2f",
+    --             fg_color = "#c6c8d1",
+    --             italic = false
+    --         },
 
-            new_tab_hover = {
-                bg_color = "#444b71",
-                fg_color = "#c6c8d1",
-                italic = false
-            }
-        }
-    },
+    --         new_tab_hover = {
+    --             bg_color = "#444b71",
+    --             fg_color = "#c6c8d1",
+    --             italic = false
+    --         }
+    --     }
+    -- },
 
     window_padding = {
         left = 1,
@@ -125,7 +126,60 @@ local config = {
     },
 
     -- color_scheme = 'Nord (base16)',
-    color_scheme = 'Catppuccin Mocha',
+    -- color_scheme = 'Catppuccin Mocha',
+    color_scheme = 'Halloween Pumpkin',
+
+    color_schemes = {
+        ['Halloween Pumpkin'] = {
+            background = '#1a0d00',
+            foreground = '#e0a050',
+
+            ansi = {
+                '#220d00',
+                '#d35400',
+                '#7f8c8d',
+                '#f39c12',
+                '#6a5acd',
+                '#8e44ad',
+                '#bbbbbb',
+                '#ecf0f1',
+            },
+            brights = {
+                '#555555',
+                '#e74c3c',
+                '#5d8f6d',
+                '#f1c40f',
+                '#8458b3',
+                '#9b59b6',
+                '#a9d5e7',
+                '#ffffff',
+            },
+
+            selection_bg = '#a0522d',
+            selection_fg = '#ffffff',
+
+            cursor_bg = '#d35400',
+            cursor_fg = '#1a0d00',
+            cursor_border = '#d35400',
+
+            tab_bar = {
+                background = '#280f00',
+                active_tab = {
+                    bg_color = '#d35400',
+                    fg_color = '#1a0d00',
+                    intensity = 'Normal',
+                },
+                inactive_tab = {
+                    bg_color = '#331a00',
+                    fg_color = '#888888',
+                },
+                new_tab = {
+                    bg_color = '#280f00',
+                    fg_color = '#888888',
+                },
+            },
+        },
+    },
 
     -- <https://wezterm.org/config/appearance.html#window-background-image>
     -- window_background_image = 'Z:\\stock\\screen_shots\\GY.png',
@@ -136,9 +190,9 @@ local config = {
     font = wezterm.font 'Moralerspace Radon HWNF',
 
     -- weztermの起動時に呼び出すシェルを指定する
-    default_prog = {'pwsh.exe'},
+    default_prog = { 'pwsh.exe' },
 
-    keys = {{
+    keys = { {
         key = '!',
         mods = 'CTRL|SHIFT',
         action = wezterm.action({
@@ -169,33 +223,33 @@ local config = {
             name = 'default'
         }
     }, -- Create a new workspace with a random name and switch to it
-    {
-        key = 'n',
-        mods = 'ALT',
-        action = act.SwitchToWorkspace
-    }, -- Show the launcher in fuzzy selection mode and have it list all workspaces
-    -- and allow activating one.
-    {
-        key = '9',
-        mods = 'ALT',
-        action = act.ShowLauncherArgs {
-            flags = 'FUZZY|WORKSPACES'
-        }
-    }, {
+        {
+            key = 'n',
+            mods = 'ALT',
+            action = act.SwitchToWorkspace
+        }, -- Show the launcher in fuzzy selection mode and have it list all workspaces
+        -- and allow activating one.
+        {
+            key = '9',
+            mods = 'ALT',
+            action = act.ShowLauncherArgs {
+                flags = 'FUZZY|WORKSPACES'
+            }
+        }, {
         key = ')',
         mods = 'ALT|SHIFT',
         action = wezterm.action.ShowTabNavigator
     }, {
-      key = 'J',
-      mods = 'ALT|SHIFT',
-      action = act.SwitchWorkspaceRelative(1)
+        key = 'J',
+        mods = 'ALT|SHIFT',
+        action = act.SwitchWorkspaceRelative(1)
     }, {
-      key = 'K',
-      mods = 'ALT|SHIFT',
-      action = act.SwitchWorkspaceRelative(-1)
-    }},
+        key = 'K',
+        mods = 'ALT|SHIFT',
+        action = act.SwitchWorkspaceRelative(-1)
+    } },
 
-    ssh_domains = {{
+    ssh_domains = { {
         -- This name identifies the domain
         name = 'my.server',
         -- The hostname or address to connect to. Will be used to match settings
@@ -203,7 +257,7 @@ local config = {
         remote_address = '192.168.1.1',
         -- The username to use on the remote host
         username = 'shun'
-    }}
+    } }
 }
 
 -- activate tab
