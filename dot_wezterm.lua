@@ -71,52 +71,57 @@ local config = {
     -- どちらがいいか悩む
     use_fancy_tab_bar = false,
 
+    window_frame = {
+        inactive_titlebar_bg = "none",
+        active_titlebar_bg = "none",
+    },
+
     -- TODO change tab colorscheme
-    -- colors = {
-    --     tab_bar = {
-    --         background = "#1b1f2f",
-    --         inactive_tab_edge = "none",
+    colors = {
+        tab_bar = {
+            --         background = "#1b1f2f",
+            inactive_tab_edge = "none",
 
-    --         active_tab = {
-    --             bg_color = "#444b71",
-    --             fg_color = "#c6c8d1",
-    --             intensity = "Normal",
-    --             underline = "None",
-    --             italic = false,
-    --             strikethrough = false
-    --         },
+            --         active_tab = {
+            --             bg_color = "#444b71",
+            --             fg_color = "#c6c8d1",
+            --             intensity = "Normal",
+            --             underline = "None",
+            --             italic = false,
+            --             strikethrough = false
+        },
 
-    --         inactive_tab = {
-    --             bg_color = "#282d3e",
-    --             fg_color = "#c6c8d1",
-    --             intensity = "Normal",
-    --             underline = "None",
-    --             italic = false,
-    --             strikethrough = false
-    --         },
+        --         inactive_tab = {
+        --             bg_color = "#282d3e",
+        --             fg_color = "#c6c8d1",
+        --             intensity = "Normal",
+        --             underline = "None",
+        --             italic = false,
+        --             strikethrough = false
+        --         },
 
-    --         inactive_tab_hover = {
-    --             bg_color = "#1b1f2f",
-    --             fg_color = "#c6c8d1",
-    --             intensity = "Normal",
-    --             underline = "None",
-    --             italic = true,
-    --             strikethrough = false
-    --         },
+        --         inactive_tab_hover = {
+        --             bg_color = "#1b1f2f",
+        --             fg_color = "#c6c8d1",
+        --             intensity = "Normal",
+        --             underline = "None",
+        --             italic = true,
+        --             strikethrough = false
+        --         },
 
-    --         new_tab = {
-    --             bg_color = "#1b1f2f",
-    --             fg_color = "#c6c8d1",
-    --             italic = false
-    --         },
+        --         new_tab = {
+        --             bg_color = "#1b1f2f",
+        --             fg_color = "#c6c8d1",
+        --             italic = false
+        --         },
 
-    --         new_tab_hover = {
-    --             bg_color = "#444b71",
-    --             fg_color = "#c6c8d1",
-    --             italic = false
-    --         }
-    --     }
-    -- },
+        --         new_tab_hover = {
+        --             bg_color = "#444b71",
+        --             fg_color = "#c6c8d1",
+        --             italic = false
+        --         }
+        --     }
+    },
 
     window_padding = {
         left = 1,
