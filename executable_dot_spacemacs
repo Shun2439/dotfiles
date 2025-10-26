@@ -39,6 +39,7 @@ This function should only modify configuration layer settings."
            rustic-format-on-save t)
      javascript
      shell-scripts
+     emoji
      csv
      (tree-sitter :variables
                   tree-sitter-indent-enable t)
