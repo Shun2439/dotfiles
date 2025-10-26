@@ -597,7 +597,9 @@ before packages are loaded."
 
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((prolog . t)))
+   '(
+     ;; (prolog . t)
+     ))
 
   (global-set-key (kbd "C-x C-j") 'skk-mode)
   (setq skk-jisyo-code 'utf-8)
