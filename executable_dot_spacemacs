@@ -40,6 +40,7 @@ This function should only modify configuration layer settings."
      javascript
      shell-scripts
      emoji
+     unicode-fonts
      csv
      (tree-sitter :variables
                   tree-sitter-indent-enable t)
@@ -55,7 +56,7 @@ This function should only modify configuration layer settings."
      helm
      (latex :variables latex-backend 'lsp)
      lsp
-     ;; markdown
+     markdown
      multiple-cursors
      (org :variables
           org-enable-reveal-js t
@@ -144,7 +145,7 @@ It should only modify the values of Spacemacs settings."
    ;; when the current branch is not `develop'. Note that checking for
    ;; new versions works via git commands, thus it calls GitHub services
    ;; whenever you start Emacs. (default nil)
-   dotspacemacs-check-for-update nil
+   dotspacemacs-check-for-update t
 
    ;; If non-nil, a form that evaluates to a package directory. For example, to
    ;; use different package directories for different Emacs versions, set this
@@ -255,10 +256,12 @@ It should only modify the values of Spacemacs settings."
    ;; fixed-pitch faces. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Guguru Sans Code Console NF"
-                               :size 12.0
+   dotspacemacs-default-font '("Moralerspace Radon HWNF"
+                               ;; "Guguru Sans Code Console NF"
+                               :size 14.0
                                :weight normal
-                               :width normal)
+                               :width normal
+                               :powerline-scale 1.1)
 
    ;; Default icons font, it can be `all-the-icons' or `nerd-icons'.
    dotspacemacs-default-icons-font 'all-the-icons
@@ -583,6 +586,8 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (set-fontset-font t 'unicode "Moralerspace Radon HWNF" nil 'prepend)
+  (set-fontset-font t 'unicode "Guguru Sans Code Console NF" nil 'prepend)
   )
 
 (defun dotspacemacs/user-config ()
