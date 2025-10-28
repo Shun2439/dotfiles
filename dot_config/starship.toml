@@ -56,7 +56,7 @@ error_symbol = "[](bold #e74c3c)"   # 血の赤の矢印
 disabled = false
 
 [os]
-format = "on $symbol"
+format = " $symbol👻"
 style = "bold blue"
 disabled = false
 
