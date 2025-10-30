@@ -1,0 +1,5 @@
+source ~/.gef-2025.01.py
+
+# https://inaz2.hatenablog.com/entry/2014/05/03/044943
+set disassembly-flavor intel
+disp/i $pc
