@@ -623,7 +623,7 @@ before packages are loaded."
    'org-babel-load-languages
    '(
      ;; (prolog . t)
-     (cpp . t)
+     (C . t)
      (ruby . t)
      ))
 
