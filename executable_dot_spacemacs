@@ -32,7 +32,9 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(go
+   '(
+     ;; languages
+     go
      yaml
      lua
      (rust :variables
@@ -49,9 +51,16 @@ This function should only modify configuration layer settings."
 
             c-c++-enable-auto-newline t)
      shell-scripts
+     csv
+     emacs-lisp
+     markdown
+     (latex :variables latex-backend 'lsp)
+
+     ;; appearances
      emoji
      unicode-fonts
-     csv
+
+     ;; core
      (tree-sitter :variables
                   tree-sitter-indent-enable t)
      ;; ----------------------------------------------------------------
@@ -61,12 +70,10 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion
      ;; better-defaults
-     emacs-lisp
      git
+     (llm-client :variables llm-client-enable-gptel t)
      helm
-     (latex :variables latex-backend 'lsp)
      lsp
-     markdown
      multiple-cursors
      (org :variables
           org-enable-reveal-js t
@@ -88,7 +95,6 @@ This function should only modify configuration layer settings."
      syntax-checking
      ;; version-control
      treemacs
-     git
      )
 
 
@@ -100,7 +106,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(ox-reveal ox-pandoc nix-mode nord-theme ox-latex ddskk org-roam org-roam-ui miasma-theme)
+   dotspacemacs-additional-packages '(ox-reveal ox-pandoc nix-mode nord-theme ox-latex ddskk org-roam org-roam-ui miasma-theme org-nix-shell)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
