@@ -625,7 +625,7 @@ before packages are loaded."
      ;; (prolog . t)
      (C . t)
      (ruby . t)
-     (nix . t)
+     (octave . t)
      ))
 
   (global-set-key (kbd "C-x C-j") 'skk-mode)
