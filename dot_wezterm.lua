@@ -131,8 +131,8 @@ local config = {
     },
 
     -- color_scheme = 'Nord (base16)',
-    -- color_scheme = 'Catppuccin Mocha',
-    color_scheme = 'Halloween Pumpkin',
+    color_scheme = 'Catppuccin Mocha',
+    -- color_scheme = 'Halloween Pumpkin',
 
     color_schemes = {
         ['Halloween Pumpkin'] = {
