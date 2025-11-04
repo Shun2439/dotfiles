@@ -616,6 +616,8 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setq alert-default-style 'notifications)
 
+  (setq powerline-default-separator 'slant)
+
   (setq org-journal-dir "~/org/journal/")
   (setq org-journal-file-format "%Y-%m-%d")
 
