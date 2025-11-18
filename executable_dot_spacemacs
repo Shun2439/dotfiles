@@ -54,7 +54,11 @@ This function should only modify configuration layer settings."
      csv
      emacs-lisp
      markdown
-     (latex :variables latex-backend 'lsp)
+     (latex :variables
+            latex-backend 'lsp
+            latex-refresh-preview t
+            latex-enable-folding t)
+     (haskell :variables haskell-completion-backend 'lsp)
 
      ;; appearances
      emoji
@@ -84,9 +88,13 @@ This function should only modify configuration layer settings."
           org-enable-transclusion-support t
           org-enable-notifications t
           org-start-notification-daemon-on-startup t
+
           org-enable-roam-support t
+          org-enable-roam-server t
           org-enable-roam-ui t
           org-enable-roam-protocol t
+
+          org-enable-org-brain-support t
           org-enable-sticky-header t
           org-enable-org-journal-support t
           )
@@ -108,7 +116,20 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(ox-reveal ox-pandoc nix-mode nord-theme ox-latex ddskk org-roam org-roam-ui miasma-theme org-nix-shell catppuccin-theme)
+   dotspacemacs-additional-packages '(
+                                      ox-reveal
+                                      nix-mode
+
+                                      ox-pandoc
+
+                                      ddskk
+
+                                      org-roam org-roam-ui
+
+                                      org-nix-shell
+
+                                      catppuccin-theme nord-theme miasma-theme
+                                      )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -627,6 +648,10 @@ before packages are loaded."
   (setq org-journal-dir "~/org/journal/")
   (setq org-journal-file-format "%Y-%m-%d")
 
+  ;; roam
+  ;; (make-directory "~/org-roam")
+  ;; (setq org-roam-directory (file-truename "~/org-roam"))
+
   (org-babel-do-load-languages
    'org-babel-load-languages
    '(
@@ -634,6 +659,11 @@ before packages are loaded."
      (C . t)
      (ruby . t)
      (octave . t)
+     (python . t)
+     (js . t)
+     (java . t)
+     ;; (dart . t)
+     (haskell . t)
      ))
 
   (global-set-key (kbd "C-x C-j") 'skk-mode)
