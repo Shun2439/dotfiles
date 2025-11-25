@@ -20,6 +20,10 @@ function y {
     Remove-Item -Path $tmp
 }
 
+# CompletionPredictor
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+
 # IntelliShell
 # $env:INTELLI_HOME = "C:\Users\$Env:USERNAME\AppData\Roaming\IntelliShell\Intelli-Shell\data" # Is it correct?
 # $env:INTELLI_SEARCH_HOTKEY = 'Ctrl+Spacebar'
