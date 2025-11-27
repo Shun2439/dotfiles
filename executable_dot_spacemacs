@@ -129,6 +129,9 @@ This function should only modify configuration layer settings."
                                       org-nix-shell
 
                                       catppuccin-theme nord-theme miasma-theme
+
+                                      ;; Matrix
+                                      ement
                                       )
 
    ;; A list of packages that cannot be updated.
@@ -648,16 +651,26 @@ before packages are loaded."
   (setq org-journal-dir "~/org/journal/")
   (setq org-journal-file-format "%Y%m%d.org")
 
-  ;; roam
+  ;; roam ----- {{{
   ;; (make-directory "~/org-roam")
   (setq org-roam-directory "~/org/roam/")
+  ;; }}}
 
+  ;; agenda ----- {{{
   (setq org-agenda-files
         (directory-files-recursively
          "~/org/"
          "\\.org$"
          )
         )
+
+  (setq org-agenda-files
+        (seq-filter
+         (lambda (file)
+           ;; Check if the file path contains "/org-roam.bak/"
+           (not (string-match "/org-roam.bak/" file)))
+         org-agenda-files))
+  ;; }}}
 
   (org-babel-do-load-languages
    'org-babel-load-languages
