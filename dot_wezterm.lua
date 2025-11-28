@@ -59,6 +59,7 @@ wezterm.on('toggle-colorscheme', function(window, pane)
 end)
 
 local config = {
+    front_end = "WebGpu",
     automatically_reload_config = true,
     -- windowの枠を消す
     window_decorations = "RESIZE",
