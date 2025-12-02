@@ -46,3 +46,22 @@ au BufNewFile,BufRead *.py
 " autocmd BufNewFile,BufRead *.c set formatprg=astyle\ -T4pb
 autocmd BufNewFile,BufRead *.c set formatprg=astyle\ -T4pb
 
+" netrw ----- {{{
+let g:netrw_liststyle=3
+let g:netrw_banner=0
+let g:netrw_sizestyle="H"
+let g:netrw_timefmt="%Y/%m/%d(%a) %H:%M:%S"
+let g:netrw_preview=1
+
+" 3 - open files in a new tab
+let g:netrw_browse_split = 4
+
+let g:netrw_winsize = 20
+
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
+
+" <https://shapeshed.com/vim-netrw/>
+" }}}

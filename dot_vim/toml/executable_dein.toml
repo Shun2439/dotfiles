@@ -107,3 +107,20 @@ hook_source = '''
 silent !gem install rqrcode
 '''
 
+# fzf ----- {{{
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = 0
+# rtp = ''
+# hook_add = '''
+# call fzf#install()
+# '''
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = ['junegunn/fzf']
+# }}}
+
+[[plugins]]
+repo = 'tpope/vim-vinegar'
