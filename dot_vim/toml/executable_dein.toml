@@ -124,3 +124,6 @@ depends = ['junegunn/fzf']
 
 [[plugins]]
 repo = 'tpope/vim-vinegar'
+
+[[plugins]]
+repo = 'github/copilot.vim'
