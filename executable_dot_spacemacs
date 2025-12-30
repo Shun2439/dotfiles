@@ -34,14 +34,19 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(
      ;; languages
+     java
      (go :variables
          go-backend 'lsp
          go-use-golangci-lint t)
+     python
      yaml
-     lua
+     (lua :variables
+          lua-backend 'lsp)
      (rust :variables
            lsp-rust-analyzer-cargo-auto-reload t
-           rustic-format-on-save t)
+           rustic-format-on-save t
+           rust-backend 'lsp)
+
      windows-scripts
      javascript
      (c-c++ :variables
@@ -61,6 +66,7 @@ This function should only modify configuration layer settings."
             latex-refresh-preview t
             latex-enable-folding t)
      (haskell :variables haskell-completion-backend 'lsp)
+     (svelte :variables svelte-backend 'lsp)
 
      ;; appearances
      emoji
@@ -104,9 +110,12 @@ This function should only modify configuration layer settings."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      spell-checking
-     syntax-checking
+     (syntax-checking :variables
+                      spell-checking-enable-by-default nil)
      ;; version-control
      treemacs
+
+     github-copilot
      )
 
 
@@ -445,12 +454,12 @@ It should only modify the values of Spacemacs settings."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 90
+   dotspacemacs-active-transparency 80
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 90
+   dotspacemacs-inactive-transparency 80
 
    ;; A value from the range (0..100), in increasing opacity, which describes the
    ;; transparency level of a frame background when it's active or selected. Transparency
@@ -691,7 +700,7 @@ before packages are loaded."
      (java . t)
      ;; (dart . t)
      (haskell . t)
-
+     (shell . t)
      (go . t)
      ))
 
