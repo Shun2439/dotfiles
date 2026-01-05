@@ -78,7 +78,7 @@ wezterm.on('toggle-colorscheme', function(window, pane)
         }
     else
         overrides.color_scheme = nil
-        overrides.window_background_opacity = 0.8
+        overrides.window_background_opacity = 0.75
         overrides.window_background_image_hsb = {
             brightness = 1.0
         }
@@ -198,7 +198,7 @@ local config = {
     -- <https://wezterm.org/config/appearance.html#window-background-image>
     -- window_background_image = 'Z:\\stock\\screen_shots\\GY.png',
 
-    window_background_opacity = 0.70,
+    window_background_opacity = 0.75,
 
     -- 使うフォントを指定する
     font = wezterm.font 'Moralerspace Radon HWNF',
