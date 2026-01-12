@@ -1,7 +1,7 @@
 set nu
 
 set fileencodings=utf-8,cp932
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 set expandtab
 set smartindent
