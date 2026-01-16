@@ -36,12 +36,12 @@ syntax enable
 
 au BufNewFile,BufRead *.py
 			\ set tabstop=4
-			\ set softtabstop=4
-			\ set shiftwidth=4
-			\ set textwidth=79
-			\ set expandtab
-			\ set autoindent
-			\ set fileformat=unix
+			\|set softtabstop=4
+			\|set shiftwidth=4
+			\|set textwidth=79
+			\|set expandtab
+			\|set autoindent
+			\|set fileformat=unix
 
 " autocmd BufNewFile,BufRead *.c set formatprg=astyle\ -T4pb
 autocmd BufNewFile,BufRead *.c set formatprg=astyle\ -T4pb
