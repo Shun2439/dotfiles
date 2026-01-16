@@ -12,11 +12,7 @@ on_ft = ['java']
 repo = 'vim-python/python-syntax'
 hook_add = 'let g:python_highlight_all = 1'
 on_ft = ['py', 'python']
-
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = ['py', 'python']
-
+ 
 ######
 # es #
 ######
