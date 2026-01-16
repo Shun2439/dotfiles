@@ -9,6 +9,10 @@ rev = 'release'
 [[plugins]]
 repo = 'vim-skk/skk.vim'
 
+# Git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
@@ -125,5 +129,5 @@ depends = ['junegunn/fzf']
 [[plugins]]
 repo = 'tpope/vim-vinegar'
 
-[[plugins]]
-repo = 'github/copilot.vim'
+# [[plugins]]
+# repo = 'github/copilot.vim'
