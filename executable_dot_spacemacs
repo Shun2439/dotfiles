@@ -687,21 +687,21 @@ before packages are loaded."
   ;; }}}
 
   ;; agenda ----- {{{
-  (setq org-agenda-files
-        (directory-files-recursively
-         "~/org/"
-         "\\.org$"
-         )
-        )
-
   ;; (setq org-default-notes-file "notes.org")
   (setq org-todo-keywords
         '((sequence "TODO(t)" "SOMEDAY(s)" "WAITING(w)" "|" "DONE(d)")))
+
+  (setq org-agenda-files
+        (directory-files-recursively
+         "~/org/"
+         "\\.org$"))
+
   (setq org-agenda-files
         (seq-filter
          (lambda (file)
            ;; Check if the file path contains "/org-roam.bak/"
-           (not (string-match "/org-roam.bak/" file)))
+           (and (not (string-match-p "/org-roam\\.bak/" file))
+                (not (string-match-p "/bak/" file))))
          org-agenda-files))
   ;; }}}
 
