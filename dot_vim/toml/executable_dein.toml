@@ -7,6 +7,12 @@ repo = 'neoclide/coc.nvim'
 rev = 'release'
 
 [[plugins]]
+repo = 'tpope/vim-dispatch'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
 repo = 'vim-skk/skk.vim'
 
 # Git

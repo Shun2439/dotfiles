@@ -43,6 +43,18 @@ on_ft = ['cpp', 'c', 'hpp', 'h']
 repo = 'vim-scripts/a.vim'
 on_ft = ['cpp', 'c', 'hpp', 'h']
 
+[[plugins]]
+repo = 'octol/vim-cpp-enhanced-highlight'
+hook_add = '''
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+
+let g:cpp_concepts_highlight = 1
+'''
+on_ft = ['cpp', 'c', 'hpp', 'h']
+
 ########
 # rust #
 ########
