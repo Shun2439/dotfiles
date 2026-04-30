@@ -1,0 +1,690 @@
+#+STARTUP: indent hidestars content
+
+* config.org
+- Note taken on [2025-06-28 Sat 05:48] \\
+  [[https://stackoverflow.com/a/71032400/20348296][can't install doom-modeline package on emacs]]
+- Note taken on [2025-06-23 Mon 23:36] \\
+  [[https://youtu.be/GTrJf1OjGRg?si=e7hZzJVfOqklC8O2][Emacs初期設定ファイルは、org-modeで。]]
+
+** Core [0/6]
+
+#+begin_src elisp :tangle no
+  (use-package exec-path-from-shell
+    :if (eq system-type 'gnu/linux)
+    :ensure t
+    :config
+    (exec-path-from-shell-copy-env "PATH")
+    (exec-path-from-shell-initialize)
+  )
+#+end_src
+
+*** TODO Encoding
+
+For windows
+
+#+begin_src elisp :tangle no
+  (set-default-coding-systems 'utf-8)
+
+  (set-terminal-coding-system 'utf-8)
+
+  (set-selection-coding-system 'utf-8)
+
+  (prefer-coding-system 'utf-8)
+
+  ; (set-language-environment "Japanese")
+#+end_src
+
+*** use-package
+
+#+begin_src elisp
+  (eval-when-compile
+    (require 'use-package))
+#+end_src
+
+*** Packages
+
+#+begin_src elisp :tangle no
+  ;; (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(custom-enabled-themes '(nord))
+   '(custom-safe-themes
+     '("24afbd552dad7df70345e4749f849d4b471717a77e5274da2bd78f7e48045823" "5a4cdc4365122d1a17a7ad93b6e3370ffe95db87ed17a38a94713f6ffe0d8ceb" default))
+   '(package-selected-packages
+     '(tree-sitter tree-sitter-langs highlight-parentheses nix-mode which-key nerd-icons doom-modeline ox-pandoc company emojify flycheck format-all gnuplot lsp-latex lsp-mode magit nord-theme projectile rust-mode)))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   )
+#+end_src
+
+**** COMMENT MisTTY
+
+<2025-07-14 月 13:16>
+
+#+begin_src emacs-lisp :tangle ~/.emacs.d/init.el
+  (use-package mistty
+    :ensure nil
+  )
+#+end_src
+
+*** load-path
+# pp. 61
+
+#+begin_src elisp :tangle no
+  (defun add-to-load-path (&rest paths)
+    (let (path)
+      (dolist (path paths paths)
+	(let ((default-directory
+	       (expand-file-name (concat user-emacs-directory path))))
+	  (add-to-list 'load-path default-directory)
+	  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+	      (normal-top-level-add-subdirs-to-load-path))))))
+  (cond ((eq system-type 'gnu/linux)
+  (add-to-load-path "conf")))
+#+end_src
+
+*** IME
+
+#+begin_src elisp :tangle no
+  ; <https://gihyo.jp/admin/serial/01/ubuntu-recipe/0175>
+  (use-package skk
+    ; :ensure t
+    :bind (("C-x C-j" . skk-mode)
+           ("C-x j" . skk-auto-fill-mode)
+           ("C-\\" . skk-mode)
+           ("C-x t" . skk-tutorial))
+    :config
+    (let* ((skk-jisyo-path (file-name-concat (getenv "HOME") "SKK-JISYO.L")))
+      (setq skk-large-jisyo skk-jisyo-path)
+      )
+    )
+#+end_src
+
+*** TODO org-mode
+#+begin_src elisp
+  (use-package org
+    :ensure t
+    :init
+    ;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+    ;; (add-hook 'org-mode-hook 'turn-on-font-lock)
+    :config
+    (setq org-hide-leading-stars t)
+    (setq org-directory "~/org/")
+    (setq org-default-notes-file "notes.org")
+    (setq org-agenda-files (list org-directory))
+    (setq org-log-done 'note)
+    (setq org-log-into-drawer t)
+    ;; :bind
+    ;; ("C-c l" . org-store-link)
+    ;; ("C-c a" . org-agenda)
+    ;; ("C-c r" . org-remember)
+    )
+  (use-package org-modern
+    :ensure t
+    :hook
+    (org-mode . org-modern-mode)
+    :custom
+    (org-modern-star nil) ;; 文字化けする
+    )
+  (use-package org-journal
+    :ensure t
+    :defer t
+    :custom
+    (org-journal-dir "~/org/journals")
+    (org-journal-file-format "%Y%m%d.org")
+    (org-journal-file-type 'monthly))
+  (use-package org-roam
+    :ensure t
+    :defer t
+    :custom
+    (org-roam-directory (file-truename "~/org/roam/"))
+    :config
+    (org-roam-db-autosync-mode))
+  #+end_src
+  
+**** Agenda
+#+begin_src elisp :tangle no
+  ;; (setq org-agenda-files (list org-directory))
+  ;; アジェンダ表示で下線を用いる
+  (add-hook 'org-agenda-mode-hook '(lambda () (hl-line-mode 1)))
+  (setq hl-line-face 'underline)
+  ;; 標準の祝日を利用しない
+  (setq calendar-holidays nil)
+#+end_src
+**** LaTeX
+
+#+begin_src elisp :tangle no
+  (use-package ox-latex
+    :config
+    (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+    (setq org-latex-pdf-process '("latexmk -lualatex %f"))
+    (add-to-list 'org-latex-classes
+                 '("jlreq-article"
+                   "\\ifdefined\\kanjiskip
+    \\documentclass[uplatex,dvipdfmx,11pt,paper=a4]{jlreq}
+  \\else
+    \\documentclass[11pt,paper=a4]{jlreq}
+  \\fi
+  [NO-DEFAULT-PACKAGES]
+  \\usepackage{amsmath}
+  \\usepackage{newtxtext,newtxmath}
+  \\ifdefined\\kanjiskip
+    \\usepackage{graphicx}
+    \\usepackage{hyperref}
+    \\usepackage{pxjahyper}
+    \\hypersetup{colorlinks=true}
+  \\else
+    \\usepackage{graphicx}
+    \\usepackage{hyperref}
+    \\usepackage{bm}
+    \\hypersetup{pdfencoding=auto,colorlinks=true}
+  \\fi"
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+#+end_src
+
+**** Babel
+
+#+begin_src elisp
+  (setq org-confirm-babel-evaluate nil)
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (C . t)
+     (R . t)
+     (gnuplot . t)
+     ; (mermaid . t)
+     ;; (rust . t)
+     (python . t)
+     (ruby .t)
+     (java . t)
+     (shell . t)
+     ; (scala . t)
+     ;; (nix . t)
+     ;; (clojure . t)
+     (octave . t)
+     ))
+
+    (use-package ob-nix
+      :ensure t
+    )
+#+end_src
+
+*** eglot
+#+begin_src elisp
+  (use-package eglot
+    :ensure t
+    :hook
+    (c-mode . eglot-ensure)
+    ;; (rust-mode . eglot-ensure)
+    ;; (ruby-mode . eglot-ensure)
+    ;; (nix-mode . eglot-ensure)
+    ;;(clojure-mode . eglot-ensure)
+    (org-mode . eglot-ensure)
+  )
+  (use-package breadcrumb
+    :ensure t
+    :config
+    ;; グローバルに有効化（ヘッダーラインに表示）
+    (breadcrumb-mode 1))
+#+end_src
+*** Corfu
+#+begin_src elisp
+  (use-package corfu
+    :ensure t
+    :custom
+    (corfu-auto t)                 ;; 自動補完を有効化
+    (corfu-auto-delay 0.0)         ;; 遅延なしで表示
+    (corfu-auto-prefix 1)          ;; 1文字入力で補完開始
+    :init
+    (global-corfu-mode))
+
+(use-package cape
+  :ensure t
+  :init
+  ;; 補完ソースの追加
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev))
+#+end_src
+*** Vertico
+#+begin_src elisp
+  (use-package vertico
+    :ensure t
+    :init
+    (vertico-mode))
+
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+#+end_src
+*** Consult
+#+begin_src emacs-lisp
+  (use-package consult
+    :ensure t
+    :bind (;; バッファ切り替えをプレビュー付きに
+          ("C-x b" . consult-buffer)
+          ;; バッファ内の高速行検索 (isearchの代わりにおすすめ)
+          ("C-s" . consult-line)
+          ;; 過去のキルリングから選択して貼り付け
+          ("M-y" . consult-yank-pop)
+          ;; プロジェクト内のファイル検索 (projectileと連携)
+          ("C-c p f" . consult-project-file)
+          ;; 以前開いたファイル（最近使ったファイル）
+          ("C-x r b" . consult-recent-file))
+    :config
+    ;; プレビューをリアルタイムで有効にする
+    (setq consult-preview-key 'any)
+    (with-eval-after-load 'perspective
+  (setq consult-customize-consult--source-buffer :hidden t :default nil)
+  (add-to-list 'consult-buffer-sources 'persp-consult-source)))
+  (use-package marginalia
+    :ensure t
+    :init
+    (marginalia-mode))
+#+end_src
+*** TODO yasnippet
+#+begin_src elisp :tangle no
+  (use-package yasnippet
+    :ensure t
+    :hook
+    (el-get-bundle yasnippet)
+    )
+#+end_src
+*** COMMENT lsp-mode
+
+#+begin_src emacs-lisp :tangle no
+  (use-package lsp-mode
+  :custom ((create-lockfiles nil))
+  :commands (lsp lsp-deferred)
+  :init
+  ;; Set up keybindings before lsp-mode is fully loaded
+  (setq lsp-keymap-prefix "C-c l") ; Your preferred prefix for LSP commands
+
+  ;; Auto-start LSP for specific modes (add your languages here)
+  :hook ((rust-mode
+          python-mode
+          c-mode
+          c++-mode
+          java-mode
+          ruby-mode) . lsp-deferred)
+					; lsp-deferred starts the server only when needed
+
+  :config
+  ;; Global LSP settings
+  (setq lsp-auto-configure t       ; Auto-configure known servers
+        lsp-ui-doc-enable t        ; Enable documentation popups
+        lsp-ui-sideline-enable t   ; Show diagnostics in sideline
+        lsp-ui-peek-enable t       ; Enable peek definition/references
+        lsp-eldoc-enable-hover t   ; Show eldoc on hover
+        lsp-idle-delay 0.1         ; How long to wait before sending request
+        lsp-log-io nil             ; Set to t for detailed IO logging (for debugging)
+        )
+
+  ;; Enable LSP-UI (optional, but highly recommended for visual features)
+  (use-package lsp-ui
+    :after lsp-mode
+    :custom (scroll-margin 0)
+;     :commands lsp-ui-mode
+    :hook (lsp-mode . lsp-ui-mode))
+
+  ;; Optional: Enable formatting on save
+  (setq lsp-format-on-save t)
+  
+
+  ;; Optional: Better formatting for certain languages (e.g., Python black, Rust rustfmt)
+  (setq lsp-rust-analyzer-cargo-watch-command "clippy") ; Rust example
+
+  ;; Optional: More advanced error/warning display
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+
+    ;; Optional: For project management (find project root etc.)
+  (use-package projectile
+    :ensure t
+    :config (projectile-mode +1)
+   :bind (("C-c p" . projectile-command-map)))
+)
+
+(with-eval-after-load 'lsp-mode
+;; :global/:workspace/:file
+(setq lsp-modeline-diagnostics-scope :workspace))
+#+end_src
+*** TODO Beep
+- [[https://myemacs.readthedocs.io/ja/latest/basic-customize.html#id2][ビープ音を消す]]
+#+begin_src elisp :tangle no
+  (setq ring-bell-function 'ignore)
+#+end_src
+*** TODO Always use tab
+#+begin_src elisp :tangle no
+  (setq-default indent-tabs-mode nil)
+  (setq tab-width 4)
+#+end_src
+*** TODO Auto-complete
+- [[https://myemacs.readthedocs.io/ja/latest/auto-complete.html][auto-completeを導入する]]
+#+begin_src elisp :tangle no
+  (use-package auto-complete
+    :ensure t
+    :config
+    (ac-set-trigger-key "TAB")
+    (setq ac-quick-help-delay 0.5)
+    )
+#+end_src
+*** Dirvish
+#+begin_src elisp
+  (use-package dirvish
+    :ensure t
+    :init
+    (dirvish-override-dired-mode) ; dired を dirvish で上書き
+    :custom
+    ;; (dirvish-attributes '(vs-state nerd-icons subtree-state collapge git-msg file-size))
+    (dirvish-attributes '(vs-state nerd-icons subtree-state collapse file-size))
+    :config
+    (dirvish-peek-mode) ; ファイルをプレビューする
+    (setq dirvish-subtree-state-style 'nerd)
+    (setq delete-by-moving-to-trash t)
+    )
+#+end_src
+*** sudo
+#+begin_src elisp
+  (use-package auto-sudoedit
+    :ensure t
+    :config
+    (auto-sudoedit-mode 1))
+#+end_src
+*** perspective
+#+begin_src emacs-lisp
+  (use-package perspective
+    :ensure t
+    :bind (("C-x C-b" . persp-list-buffers)   ; そのワークスペースのバッファのみ表示
+          ("C-x b" . persp-switch-to-buffer)) ; consult等と連携
+    :custom
+    (persp-mode-prefix-key (kbd "C-c w")) ; プレフィックスを C-c w に設定
+    :init
+    (persp-mode))
+#+end_src
+** Appearance [0/4]
+
+#+begin_src elisp
+  ;; (global-display-line-numbers-mode 1)
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  ;; (setq initial-buffer-choice t)
+  ;; (setq inhibit-startup-screen t)
+
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (set-scroll-bar-mode nil)
+
+  ;; (push '(fullscreen . fullscreen) default-frame-alist)
+#+end_src
+*** beacon
+#+begin_src elisp
+  (use-package beacon
+    :ensure t
+    :config
+    (beacon-mode 1))
+#+end_src
+*** tree-sitter
+
+#+begin_src elisp
+  (use-package tree-sitter
+    :ensure t
+    :config
+    ;; (require 'tree-sitter-langs)
+    (global-tree-sitter-mode)
+    (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+#+end_src
+
+*** TODO theme
+
+#+begin_src elisp :tangle no
+  (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/themes/"))
+  (use-package catppuccin-theme
+    :ensure nil
+    :init
+    (setq catppuccin-flavor 'mocha)
+    :config
+    (load-theme 'catppuccin t)
+    )
+  
+  (load-theme 'nord t)
+#+end_src
+
+*** TODO status line
+
+#+begin_src elisp :tangle no
+  (use-package doom-modeline
+    :ensure t
+    :hook (after-init . doom-modeline-mode))
+#+end_src
+
+*** TODO font
+#+begin_src elisp
+  (set-face-attribute 'default nil :family "Moralerspace Radon HWNF" :height 120)
+  (use-package nerd-icons
+    :ensure t
+    :custom
+    (nerd-icons-font-family "Symbols Nerd Font Mono"))
+#+end_src
+*** Emoji
+#+begin_src elisp
+  (use-package emojify
+    :ensure t
+    :hook
+    (after-init . global-emojify-mode))
+  (add-hook 'after-init-hook #'global-emojify-mode)
+#+end_src
+*** parentheses
+
+#+begin_src elisp :tangle no
+  (use-package highlight-parentheses
+    :ensure t
+    :hook (prog-mode . highlight-parentheses-mode))
+#+end_src
+
+*** TODO Transparenet
+
+<2025-07-04 Fri 21:21>
+
+[[https://kristofferbalintona.me/posts/202206071000/]]
+
+#+begin_src elisp :tangle no
+  ; how to use?
+    (defun kb/toggle-window-transparency ()
+    "Toggle the value of `alpha-background'.
+
+  Toggles between 100 and 72 by default.  Can choose which value to change
+  to if called with ARG, or any prefix argument."
+    (interactive "P")
+    (let ((transparency (pcase arg
+			  ((pred numberp) arg)
+			  ((pred car) (read-number "Change the transparency to which value (0-100)? "))
+			  (_
+			   (pcase (frame-parameter nil 'alpha-background)
+			     (72 100)
+			     (100 72)
+			     (t 100))))))
+      (set-frame-parameter nil 'alpha-background transparency)))
+
+  (set-frame-parameter nil 'alpha-background 85)
+#+end_src
+*** nyan-mode
+#+begin_src elisp
+  (use-package nyan-mode
+    :ensure t
+    :config
+      (nyan-mode 1)
+      (setq nyan-animate-nyancat t))
+#+end_src
+** Git
+
+#+begin_src elisp :tangle no
+  (use-package magit
+    :ensure t
+    :bind (("C-x g" . magit-status)))
+#+end_src
+
+** Langs
+
+*** Rust
+
+#+begin_src elisp :tangle no
+  (require 'rust-mode)
+
+  (defun my/find-rust-project-root (dir)                                                                           
+   (when-let ((root (locate-dominating-file dir "Cargo.toml")))                                                         
+     (list 'vc 'Git root)))
+
+  (defun my/rust-mode-hook ()
+    (setq-local project-find-functions (list #'my/find-rust-project-root)))
+
+  (add-hook 'rust-mode-hook #'my/rust-mode-hook)
+#+end_src
+
+*** Scheme
+
+#+begin_src elisp :tangle no
+  ;; <https://haskell.hatenablog.com/entry/Settings-to-use-Gauche_Scheme-with-Emacs>
+
+  (modify-coding-system-alist 'process "gosh" '(utf-8 . utf-8))
+
+  (setq scheme-program-name "gosh -i")
+  (autoload 'scheme-mode "cmuscheme" "Major mode for scheme." t)
+  (autoload 'run-scheme "cmuscheme" "Run a n inferior Scheme process." t)
+
+  (defun scheme-other-window ()
+    "Run scheme on other window"
+    (interactive)
+    (switch-to-buffer-other-window
+      (get-buffer-create "*scheme*"))
+    (run-scheme scheme-program-name))
+
+  (define-key global-map
+    "\C-cs" 'scheme-other-window)
+#+end_src
+
+*** COMMENT R
+
+#+begin_src emacs-lisp :tangle ~/.emacs.d/init.el
+  (use-package ess-site
+    :ensure t
+    :config
+    (add-to-list 'auto-mode-alist '("\\.R\\\'" . R-mode))
+    (global-set-key "\C-cl" 'org-store-link)
+    (global-set-key "\C-cc" 'org-capture)
+    (global-set-key "\C-ca" 'org-agenda)
+    (global-set-key "\C-cb" 'org-iswitchb))
+#+end_src
+
+*** COMMENT Mermaid
+
+#+begin_src emacs-lisp :tangle ~/.emacs.d/init.el
+  (defun my/set-mermaid-cli-path ()
+  "Sets `org-mermaid-cli-path` based on the operating system.
+   Uses `which` on Linux/WSL and `where` on Windows."
+  (cond
+   ;; Case 1: Linux (including WSL Ubuntu)
+   ((or (eq system-type 'gnu/linux) (eq system-type 'cygwin))
+    (let ((mmdc-path (shell-command-to-string "which mmdc")))
+      (setq mmdc-path (string-trim mmdc-path)) ; Remove newline/whitespace
+      (if (and (not (string-empty-p mmdc-path)) (file-exists-p mmdc-path))
+	  (progn
+	    (setq org-mermaid-cli-path mmdc-path)
+	    (message "Mermaid CLI path (Linux/WSL) set to: %s" org-mermaid-cli-path))
+	(message "WARNING: 'mmdc' not found in PATH on Linux/WSL. Please ensure it's installed via Nix/npm and in your system's PATH."))))
+
+   ;; Case 2: Windows
+   ((eq system-type 'windows-nt)
+    (let ((mmdc-path (shell-command-to-string "where mmdc.cmd"))) ; Use .cmd for Windows executables
+      (setq mmdc-path (string-trim mmdc-path))
+      (if (and (not (string-empty-p mmdc-path)) (file-exists-p mmdc-path))
+	  (progn
+	    (setq org-mermaid-cli-path mmdc-path)
+	    (message "Mermaid CLI path (Windows) set to: %s" org-mermaid-cli-path))
+	(message "WARNING: 'mmdc.cmd' not found in PATH on Windows. Please install 'mermaid-cli' via npm and ensure Node.js/npm is in your PATH."))))
+
+   ;; Case 3: Other or Unknown OS
+   (t
+    (message "Mermaid CLI: Unsupported system-type '%s' for automatic path detection." system-type))))
+
+  (cond
+   ((eq system-type 'gnu/linux)
+    (my/set-mermaid-cli-path)
+    (setq ob-mermaid-cli-path "/mnt/c/Users/shunt/AppData/Roaming/npm/mmdc")))
+  (setq org-babel-inline-result-wrap "")
+#+end_src
+
+*** Nix
+
+#+begin_src elisp :tangle no
+  (use-package nix-mode
+    :ensure t
+    :config
+    (setq nix-indent-offset 2)
+    )
+#+end_src
+
+** Other
+
+# <2025-06-30 Mon 22:04>
+
+#+begin_src elisp :tangle no
+  (add-hook 'text-mode-hook 'auto-fill-mode)
+  
+  ; WIP
+  (cond
+   ((or (eq system-type 'gnu/linux) (eq system-type 'cygwin))
+  (let ((edge-path (shell-command-to-string "where msedge.exe")))
+	(setq edge-path (string-trim edge-path))
+	(if (and (not (string-empty-p edge-path)) (file-exists-p edge-path))
+	    (progn
+	      (setenv "PUPPETEER_EXECUTABLE_PATH" edge-path))))))
+
+  ;; (add-to-list 'lsp-language-id-configuration '(python-mode . "python"))
+
+  ; (which-key-mode)
+  ; (add-hook 'c-mode-hook 'lsp)
+  ; (add-hook 'c++-mode-hook 'lsp)
+#+end_src
+
+*** Todo
+
+#+begin_src elisp :tangle no
+  ;; https://tamura70.hatenadiary.org/entry/20100207/org
+  (setq org-todo-keywords
+	'((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "SOMEDAY(s)")))
+  ;; DONEの時刻を記録
+  (setq org-log-done 'time)
+#+end_src
+
+*** COMMENT Reminder
+
+#+begin_src elisp :tangle no
+  ;; https://tamura70.hatenadiary.org/entry/20100210/org
+  ;; org-rememberを使う
+  ; (org-remember-insinuate)
+  ;; org-rememberのテンプレート
+  ; (setq org-remember-templates
+  ;       '(("Note" ?n "* %?\n  %i\n  %a" nil "Tasks")
+  ; 	("Todo" ?t "* TODO %?\n  %i\n  %a" nil "Tasks")))    
+#+end_src
+* Issues [0/1]
+** TODO icon
+[[font]]
+
+#+begin_src shell
+  nerd-icons-install-fonts
+#+end_src
